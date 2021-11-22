@@ -42,7 +42,7 @@ dependencies {
     //Google services (map)
     implementation 'com.google.android.gms:play-services-maps:18.0.0'
     //Google locations
-    implemnetation 'com.google.android.gms:play-services-location:18.0.0'
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
