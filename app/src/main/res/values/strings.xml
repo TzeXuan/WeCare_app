@@ -8,4 +8,6 @@
     <string name="lat_long_snippet">Lat: %1$.5f, Long: %2$.5f</string>
     <string name="marked_location">Marked Location</string>
     <string name="poi">poi</string>
+    //Google map API key. allow this app to use google services (firebase,maps,directions)
+    <string name="google_map_API_key">AIzaSyAnuFUlU0daxnK6T13Hlb1yQ_aqWEnLnqc</string>
 </resources>
