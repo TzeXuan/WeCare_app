@@ -38,7 +38,6 @@ import com.example.wecare_app.Constants.ERROR_DIALOG_REQUEST
 import com.example.wecare_app.Constants.PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION
 import com.example.wecare_app.Constants.PERMISSIONS_REQUEST_ENABLE_GPS
 
-
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var map: GoogleMap
