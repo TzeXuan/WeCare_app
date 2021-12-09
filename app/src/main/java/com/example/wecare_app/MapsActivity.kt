@@ -1,6 +1,8 @@
-package com.example.wander
+package com.example.wecare_app
 
 import android.app.Activity
+import android.app.AlertDialog
+import android.app.Dialog
 import android.content.Context
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
@@ -16,11 +18,26 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.example.wecare_app.R
 import com.example.wecare_app.databinding.ActivityMapsBinding
 import com.google.android.gms.maps.model.*
 import java.util.*
-import java.util.jar.Manifest
+import android.content.Intent
+
+import android.widget.Toast
+
+import com.google.android.gms.common.GoogleApiAvailability
+
+import com.google.android.gms.common.ConnectionResult
+
+import android.location.LocationManager
+
+import android.content.DialogInterface
+import android.provider.Settings
+import android.util.Log
+import com.example.wecare_app.Constants.ERROR_DIALOG_REQUEST
+import com.example.wecare_app.Constants.PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION
+import com.example.wecare_app.Constants.PERMISSIONS_REQUEST_ENABLE_GPS
+
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -28,7 +45,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var binding: ActivityMapsBinding
     private val TAG = MapsActivity::class.java.simpleName
     private val REQUEST_LOCATION_PERMISSION = 1
-
+    private var mLocationPermissionGranted = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -72,9 +89,121 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         //setMapStyle(map)
 
+        checkMapServices()
         enableMyLocation()
-
     }
+
+    private fun checkMapServices(): Boolean { // check if user has google map services
+        if (isServicesOK()) {
+            if (isMapsEnabled()) {
+                return true
+            }
+        }
+        return false
+    }
+
+    private fun buildAlertMessageNoGps() {
+        val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+        builder.setMessage("This application requires GPS to work properly, do you want to enable it?")
+            .setCancelable(false)
+            .setPositiveButton("Yes", DialogInterface.OnClickListener { dialog, id ->
+                val enableGpsIntent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+                startActivityForResult(enableGpsIntent, PERMISSIONS_REQUEST_ENABLE_GPS) // To know if user accept or decline
+            })
+        val alert: AlertDialog = builder.create()
+        alert.show()
+    }
+
+    private fun isMapsEnabled(): Boolean {
+        val manager = getSystemService(LOCATION_SERVICE) as LocationManager
+        if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            buildAlertMessageNoGps()
+            return false
+        }
+        return true
+    }
+
+    private fun getLocationPermission() { // ask for user current location
+        /*
+         * Request location permission, so that we can get the location of the
+         * device. The result of the permission request is handled by a callback,
+         * onRequestPermissionsResult.
+         */
+        if (ContextCompat.checkSelfPermission(
+                this.applicationContext,
+                android.Manifest.permission.ACCESS_FINE_LOCATION
+            )
+            == PackageManager.PERMISSION_GRANTED
+        ) {
+            mLocationPermissionGranted = true
+            //getChatrooms() go to main prob
+        } else {
+            ActivityCompat.requestPermissions(
+                this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION
+            )
+        }
+    }
+
+    private fun isServicesOK(): Boolean { // check if services are Installed
+        Log.d(TAG, "isServicesOK: checking google services version")
+        val available =
+            GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(this@MapsActivity)
+        if (available == ConnectionResult.SUCCESS) {
+            //everything is fine and the user can make map requests
+            Log.d(TAG, "isServicesOK: Google Play Services is working")
+            return true
+        } else if (GoogleApiAvailability.getInstance().isUserResolvableError(available)) {
+            //an error occurred but we can resolve it
+            Log.d(TAG, "isServicesOK: an error occurred but we can fix it")
+            val dialog: Dialog = GoogleApiAvailability.getInstance()
+                .getErrorDialog(this@MapsActivity, available, ERROR_DIALOG_REQUEST)
+            dialog.show()
+        } else {
+            Toast.makeText(this, "You can't make map requests", Toast.LENGTH_SHORT).show()
+        }
+        return false
+    }
+
+    override fun onRequestPermissionsResult( // DISPLAYS RESULT OF PERMISSIONS
+        requestCode: Int,
+        permissions: Array<String?>,
+        grantResults: IntArray
+    ) {
+        mLocationPermissionGranted = false
+        when (requestCode) {
+            PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION -> {
+
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.size > 0
+                    && grantResults[0] == PackageManager.PERMISSION_GRANTED
+                ) {
+                    mLocationPermissionGranted = true
+                }
+            }
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == REQUEST_LOCATION_PERMISSION) {
+            if (grantResults.contains(PackageManager.PERMISSION_GRANTED)) {
+                enableMyLocation()
+            }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        Log.d(TAG, "onActivityResult: called.")
+        when (requestCode) {
+            PERMISSIONS_REQUEST_ENABLE_GPS -> {
+                if (mLocationPermissionGranted) {
+                    //getChatrooms() THIS NEED ADD ACTIVITY TO CONTINUE LIKE WHAT WILL HAPPEN IF TEHY SAY YES PROB MOVE TO MAIN MENU
+                } else {
+                    getLocationPermission() // ask for user location
+                }
+            }
+        }
+    }
+
 
     // Initializes contents of Activity's standard options menu. Only called the first time options
     // menu is displayed.
@@ -106,17 +235,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         else -> super.onOptionsItemSelected(item)
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<String>,
-        grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == REQUEST_LOCATION_PERMISSION) {
-            if (grantResults.contains(PackageManager.PERMISSION_GRANTED)) {
-                enableMyLocation()
-            }
-        }
-    }
+
 
     // allow user to add a marker using a long click
     private fun setMapLongClick(map: GoogleMap) {
@@ -219,7 +338,6 @@ class CustomInfoWindowForGoogleMap(context: Context) : GoogleMap.InfoWindowAdapt
         tvTitle.text = marker.title
         tvSnippet.text = marker.snippet
 
-    /*Creating a map is not impossible, but it is likely that i need to spend over 40h hours on it.*/
 
     }
 

@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACcess_"/>
 
     <application
         android:allowBackup="true"
@@ -32,7 +33,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name="com.example.wander.MapsActivity"
+            android:name=".MapsActivity"
             android:exported="true"
             android:label="@string/title_activity_maps">
             <intent-filter>
