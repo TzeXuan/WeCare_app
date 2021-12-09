@@ -45,6 +45,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private val TAG = MapsActivity::class.java.simpleName
     private val REQUEST_LOCATION_PERMISSION = 1
     private var mLocationPermissionGranted = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

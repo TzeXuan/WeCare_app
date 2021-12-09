@@ -10,4 +10,6 @@
     <string name="poi">poi</string>
     //Google map API key. allow this app to use google services (firebase,maps,directions)
     <string name="google_map_API_key">AIzaSyAnuFUlU0daxnK6T13Hlb1yQ_aqWEnLnqc</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
