@@ -219,6 +219,8 @@ class CustomInfoWindowForGoogleMap(context: Context) : GoogleMap.InfoWindowAdapt
         tvTitle.text = marker.title
         tvSnippet.text = marker.snippet
 
+    /*Creating a map is not impossible, but it is likely that i need to spend over 40h hours on it.*/
+
     }
 
     override fun getInfoContents(marker: Marker): View {
