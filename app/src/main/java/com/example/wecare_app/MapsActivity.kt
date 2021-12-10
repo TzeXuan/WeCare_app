@@ -33,9 +33,11 @@ import com.google.android.gms.common.ConnectionResult
 import android.location.LocationManager
 
 import android.content.DialogInterface
+import android.location.Address
 import android.location.Location
 import android.provider.Settings
 import android.util.Log
+import android.view.KeyEvent
 import com.example.wecare_app.Constants.ERROR_DIALOG_REQUEST
 import com.example.wecare_app.Constants.PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION
 import com.example.wecare_app.Constants.PERMISSIONS_REQUEST_ENABLE_GPS
@@ -46,6 +48,12 @@ import com.google.android.gms.location.LocationServices.getFusedLocationProvider
 
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.firestore.GeoPoint
+import android.view.inputmethod.EditorInfo
+import android.widget.TextView.OnEditorActionListener
+import android.location.Geocoder
+import android.widget.EditText
+import android.widget.ImageView
+import java.io.IOException
 
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -56,6 +64,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private val REQUEST_LOCATION_PERMISSION = 1
     private var mLocationPermissionGranted = false
     private var mFusedLocationClient: FusedLocationProviderClient? = null
+    //private val searchText = findViewById<EditText>(R.id.map_search)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,6 +75,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
+
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
         mFusedLocationClient = getFusedLocationProviderClient(this)
@@ -72,15 +83,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     }
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
 
@@ -104,8 +106,56 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         checkMapServices()
         enableMyLocation()
+        //intit()
     }
 
+    /**
+     * Manipulates the map once available.
+     * This callback is triggered when the map is ready to be used.
+     * This is where we can add markers or lines, add listeners or move the camera. In this case,
+     * we just add a marker near Sydney, Australia.
+     * If Google Play services is not installed on the device, the user will be prompted to install
+     * it inside the SupportMapFragment. This method will only be triggered once the user has
+     * installed Google Play services and returned to the app.
+     */
+
+/*
+
+private fun intit(){
+
+        searchText.setOnEditorActionListener(OnEditorActionListener { editText, actionId, keyEvent ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH || //ID PRESS SEARCH, ENTER, NEXT LINE OR OTHER WISE
+                actionId == EditorInfo.IME_ACTION_DONE   ||
+                keyEvent.action === KeyEvent.ACTION_DOWN ||
+                keyEvent.action === KeyEvent.KEYCODE_ENTER) {
+
+                //execute our method for searching
+                geoLocate()
+
+            }
+            false
+        })
+
+    }
+
+    private fun geoLocate() {
+        Log.d(TAG, "geoLocate: geolocating")
+        val searchString: String = searchText.text.toString()
+        val geocoder = Geocoder(this@MapsActivity)
+        var list: List<Address> = ArrayList()
+        try {
+            list = geocoder.getFromLocationName(searchString, 5)
+        } catch (e: IOException) {
+            Log.e(TAG, "geoLocate: IOException: " + e.message)
+        }
+        if (list.size > 0) {
+            val address: Address = list[0]
+            Log.d(TAG, "geoLocate: found a location: $address")
+            Toast.makeText(this, address.toString(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+*/
     private fun getUserLocation(){ // gets and store user's location
         Log.d(TAG, "getLastKnownLocation: called.")
         if (ActivityCompat.checkSelfPermission(
@@ -169,7 +219,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             == PackageManager.PERMISSION_GRANTED
         ) {
             mLocationPermissionGranted = true
-            //getChatrooms() go to main prob
+            //go to main prob
             getUserLocation()
         } else {
             ActivityCompat.requestPermissions(

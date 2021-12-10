@@ -13,35 +13,39 @@
         android:layout_height="match_parent"
         tools:context=".MapsActivity" />
 
-    <!--<RelativeLayout
+    <RelativeLayout
+        android:id="@+id/relLayout1"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:elevation="10dp"
-        android:background="#fff"
-        android:id="@+id/relLayout1">
+        android:background="@drawable/white_border"
+        android:elevation="10dp">
 
         <ImageView
+            android:id="@+id/ic_magnify"
             android:layout_width="15dp"
             android:layout_height="15dp"
-            android:id="@+id/ic_magnify"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/search_icon"/>
+            android:layout_marginStart="10dp"
+            android:src="@drawable/search_icon" />
+
 
         <EditText
             android:id="@+id/map_search"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
             android:layout_toRightOf="@id/ic_magnify"
             android:background="@null"
-            android:hint=" Search here"
+            android:hint="@string/search_map"
+            android:imeOptions="actionSearch"
             android:textColor="#000"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            />
 
-    </RelativeLayout>-->
+    </RelativeLayout>
+
 
 </RelativeLayout>

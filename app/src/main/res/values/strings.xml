@@ -19,6 +19,7 @@
     <string name="create_an_account_by_filling_the_info_below">Create an account by filling the info below</string>
     <string name="email">Email</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search_map">What are you looking for?</string>
 
     <string-array name="gender">
         <item>Male</item>
