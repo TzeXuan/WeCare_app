@@ -32,11 +32,18 @@ import com.google.android.gms.common.ConnectionResult
 import android.location.LocationManager
 
 import android.content.DialogInterface
+import android.location.Location
 import android.provider.Settings
 import android.util.Log
 import com.example.wecare_app.Constants.ERROR_DIALOG_REQUEST
 import com.example.wecare_app.Constants.PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION
 import com.example.wecare_app.Constants.PERMISSIONS_REQUEST_ENABLE_GPS
+import androidx.annotation.NonNull
+import com.google.android.gms.location.LocationServices
+
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.firestore.GeoPoint
+
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -45,6 +52,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private val TAG = MapsActivity::class.java.simpleName
     private val REQUEST_LOCATION_PERMISSION = 1
     private var mLocationPermissionGranted = false
+    private val mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -93,6 +101,26 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         enableMyLocation()
     }
 
+    private fun getUserLocation(){ // gets and store user's location
+        val d = Log.d(TAG, "getLastKnownLocation: called.")
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                android.Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            return
+        }
+        mFusedLocationClient.lastLocation
+            .addOnCompleteListener(OnCompleteListener<Location?> { task ->
+                if (task.isSuccessful) {
+                    val location = task.result
+                    val geoPoint = GeoPoint(location.latitude, location.longitude)
+                    Log.d(TAG, "onComplete: latitude: " + geoPoint.latitude)
+                    Log.d(TAG, "onComplete: longitude: " + geoPoint.longitude)
+                }
+            })
+    }
+
     private fun checkMapServices(): Boolean { // check if user has google map services
         if (isServicesOK()) {
             if (isMapsEnabled()) {
@@ -137,6 +165,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         ) {
             mLocationPermissionGranted = true
             //getChatrooms() go to main prob
+            getUserLocation()
         } else {
             ActivityCompat.requestPermissions(
                 this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
@@ -197,6 +226,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             PERMISSIONS_REQUEST_ENABLE_GPS -> {
                 if (mLocationPermissionGranted) {
                     //getChatrooms() THIS NEED ADD ACTIVITY TO CONTINUE LIKE WHAT WILL HAPPEN IF TEHY SAY YES PROB MOVE TO MAIN MENU
+                    getUserLocation()
                 } else {
                     getLocationPermission() // ask for user location
                 }
