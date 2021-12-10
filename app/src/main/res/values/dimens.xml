@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="signUp_layoutWidth">291dp</dimen>
+    <dimen name="signUp_layoutHeight">42dp</dimen>
+</resources>
