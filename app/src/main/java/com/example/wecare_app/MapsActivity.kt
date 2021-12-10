@@ -40,6 +40,7 @@ import com.example.wecare_app.Constants.PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION
 import com.example.wecare_app.Constants.PERMISSIONS_REQUEST_ENABLE_GPS
 import androidx.annotation.NonNull
 import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.LocationServices.getFusedLocationProviderClient
 
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.firestore.GeoPoint
@@ -52,7 +53,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private val TAG = MapsActivity::class.java.simpleName
     private val REQUEST_LOCATION_PERMISSION = 1
     private var mLocationPermissionGranted = false
-    private val mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+    //private val mFusedLocationClient = getFusedLocationProviderClient(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -101,7 +102,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         enableMyLocation()
     }
 
-    private fun getUserLocation(){ // gets and store user's location
+    /*private fun getUserLocation(){ // gets and store user's location
         val d = Log.d(TAG, "getLastKnownLocation: called.")
         if (ActivityCompat.checkSelfPermission(
                 this,
@@ -119,7 +120,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     Log.d(TAG, "onComplete: longitude: " + geoPoint.longitude)
                 }
             })
-    }
+    }*/
 
     private fun checkMapServices(): Boolean { // check if user has google map services
         if (isServicesOK()) {
@@ -165,7 +166,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         ) {
             mLocationPermissionGranted = true
             //getChatrooms() go to main prob
-            getUserLocation()
+            //getUserLocation()
         } else {
             ActivityCompat.requestPermissions(
                 this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
@@ -226,7 +227,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             PERMISSIONS_REQUEST_ENABLE_GPS -> {
                 if (mLocationPermissionGranted) {
                     //getChatrooms() THIS NEED ADD ACTIVITY TO CONTINUE LIKE WHAT WILL HAPPEN IF TEHY SAY YES PROB MOVE TO MAIN MENU
-                    getUserLocation()
+                    //getUserLocation()
                 } else {
                     getLocationPermission() // ask for user location
                 }
