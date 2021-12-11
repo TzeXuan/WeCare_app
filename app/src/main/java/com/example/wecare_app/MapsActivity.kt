@@ -46,7 +46,15 @@ import com.google.firebase.firestore.GeoPoint
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView.OnEditorActionListener
 import android.location.Geocoder
+import com.example.wecare_app.Constants.DEFAULT_ZOOM
 import java.io.IOException
+import com.google.android.gms.maps.model.MarkerOptions
+
+
+
+
+
+
 
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -141,8 +149,15 @@ private fun intit(){
         if (list.size > 0) {
             val address: Address = list[0]
             Log.d(TAG, "geoLocate: found a location: " + address)
+            moveCamera(
+                LatLng(address.latitude, address.longitude), DEFAULT_ZOOM,
+                address.getAddressLine(0)
+            )
             Toast.makeText(this, "Location successful found!", Toast.LENGTH_SHORT).show();
         }
+
+
+
     }
 
     private fun getUserLocation(){ // gets and store user's location
@@ -203,7 +218,7 @@ private fun intit(){
          */
         if (ContextCompat.checkSelfPermission(
                 this.applicationContext,
-                android.Manifest.permission.ACCESS_FINE_LOCATION
+                Manifest.permission.ACCESS_FINE_LOCATION
             )
             == PackageManager.PERMISSION_GRANTED
         ) {
@@ -212,7 +227,7 @@ private fun intit(){
             getUserLocation()
         } else {
             ActivityCompat.requestPermissions(
-                this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
                 PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION
             )
         }
@@ -309,7 +324,19 @@ private fun intit(){
         else -> super.onOptionsItemSelected(item)
     }
 
-
+    private fun moveCamera(latLng: LatLng, zoom: Float, title: String) {
+        Log.d(
+            TAG,
+            "moveCamera: moving the camera to: lat: " + latLng.latitude.toString() + ", lng: " + latLng.longitude
+        )
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom))
+        if (title != "My Location") {
+            val options = MarkerOptions()
+                .position(latLng)
+                .title(title)
+            map.addMarker(options)
+        }
+    }
 
     // allow user to add a marker using a long click
     private fun setMapLongClick(map: GoogleMap) {
@@ -364,7 +391,7 @@ private fun intit(){
     private fun isPermissionGranted() : Boolean {
         return ContextCompat.checkSelfPermission(
             this,
-            android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
+            Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
     }
 
     // Checks if users have given their location and sets location enabled if so.
@@ -372,10 +399,10 @@ private fun intit(){
         if (isPermissionGranted()) {
             if (ActivityCompat.checkSelfPermission(
                     this,
-                    android.Manifest.permission.ACCESS_FINE_LOCATION
+                    Manifest.permission.ACCESS_FINE_LOCATION
                 ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
                     this,
-                    android.Manifest.permission.ACCESS_COARSE_LOCATION
+                    Manifest.permission.ACCESS_COARSE_LOCATION
                 ) != PackageManager.PERMISSION_GRANTED
             ) {
                 // TODO: Consider calling
@@ -392,7 +419,7 @@ private fun intit(){
         else {
             ActivityCompat.requestPermissions(
                 this,
-                arrayOf<String>(android.Manifest.permission.ACCESS_FINE_LOCATION), REQUEST_LOCATION_PERMISSION
+                arrayOf<String>(Manifest.permission.ACCESS_FINE_LOCATION), REQUEST_LOCATION_PERMISSION
             )
         }
     }
