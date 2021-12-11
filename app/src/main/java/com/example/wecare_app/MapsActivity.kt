@@ -87,11 +87,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         // coordinate in Malaysia
         val latitude = 4.1205
         val longitude = 101.9758
-        val zoomLevel = 10f
 
         val homeLatLng = LatLng(latitude, longitude)
 
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(homeLatLng, zoomLevel))
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(homeLatLng, DEFAULT_ZOOM))
         map.addMarker(MarkerOptions().position(homeLatLng)) // add a marker
 
         setMapLongClick(map)
@@ -134,7 +133,12 @@ private fun intit(){
             false
         })
 
+        binding.icGps.setOnClickListener(View.OnClickListener {
+            Log.d(TAG, "onClick: clicked gps icon")
+            getUserLocation()
+        })
     }
+
 
     private fun geoLocate() {
         Log.d(TAG, "geoLocate: geolocating")
@@ -175,6 +179,12 @@ private fun intit(){
                 val geoPoint = GeoPoint(location.latitude, location.longitude)
                 Log.d(TAG, "onComplete: latitude: " + geoPoint.latitude)
                 Log.d(TAG, "onComplete: longitude: " + geoPoint.longitude)
+
+                moveCamera(
+                    LatLng(geoPoint.latitude, geoPoint.longitude),
+                    DEFAULT_ZOOM,
+                    "My Location"
+                )
             }
         }
 
