@@ -43,6 +43,7 @@
             android:imeOptions="actionSearch"
             android:textColor="#000"
             android:textSize="15sp"
+            android:inputType="text"
             />
 
     </RelativeLayout>
