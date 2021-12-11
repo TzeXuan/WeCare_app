@@ -134,14 +134,14 @@ private fun intit(){
         val geocoder = Geocoder(this@MapsActivity)
         var list: List<Address> = ArrayList()
         try {
-            list = geocoder.getFromLocationName(binding.mapSearch.text.toString(), 5)
+            list = geocoder.getFromLocationName(binding.mapSearch.text.toString(), 1)
         } catch (e: IOException) {
             Log.e(TAG, "geoLocate: IOException: " + e.message)
         }
         if (list.size > 0) {
             val address: Address = list[0]
-            Log.d(TAG, "geoLocate: found a location: $address")
-            Toast.makeText(this, address.toString(), Toast.LENGTH_SHORT).show();
+            Log.d(TAG, "geoLocate: found a location: " + address)
+            Toast.makeText(this, "Location successful found!", Toast.LENGTH_SHORT).show();
         }
     }
 
