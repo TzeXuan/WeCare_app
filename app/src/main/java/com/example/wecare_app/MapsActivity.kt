@@ -83,8 +83,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         val homeLatLng = LatLng(latitude, longitude)
 
+
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(homeLatLng, DEFAULT_ZOOM))
-        map.addMarker(MarkerOptions().position(homeLatLng)) // add a marker
+        map.addMarker(MarkerOptions()
+            .position(homeLatLng)
+            .draggable(false)
+            .title("")
+            .snippet("")) // add a marker
 
         setMapLongClick(map)
 
@@ -99,6 +104,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         intit()
     }
 
+
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -108,6 +114,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+
 
 
 private fun intit(){
