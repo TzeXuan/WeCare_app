@@ -7,10 +7,10 @@ import com.google.maps.android.clustering.ClusterItem
 
 class ClusterMarkers(
     private var position: GeoPoint,//Tile of place
-    private var Title: String,
-    private var Snippet: String,//Drawable img
-    private var iconPic: Int,//String
-    private var placeType: String
+    private var title: String,
+    private var snippet: String,//Drawable img
+    var iconPic: Int,//String
+    private var establishment: String
 ) : ClusterItem {
 
     class ClusterMakers{
@@ -27,6 +27,5 @@ class ClusterMarkers(
     override fun getSnippet(): String? {
         TODO("Not yet implemented")
     }
-
 
 }
