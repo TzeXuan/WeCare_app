@@ -51,12 +51,6 @@ import java.io.IOException
 import com.google.android.gms.maps.model.MarkerOptions
 
 
-
-
-
-
-
-
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var map: GoogleMap
@@ -77,7 +71,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
         mFusedLocationClient = getFusedLocationProviderClient(this)
-
 
     }
 
