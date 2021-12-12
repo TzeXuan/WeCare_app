@@ -55,6 +55,10 @@ class MyClusterManagerRenderer(
         val icon = iconGenerator.makeIcon()
         markerOptions.icon(BitmapDescriptorFactory.fromBitmap(icon)).title(item.title)
     }
+
+    override fun shouldRenderAsCluster(cluster: Cluster<ClusterMarkers>): Boolean {
+        return false;
+    }
 }
 
 
