@@ -19,6 +19,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WeCare_app">
         <activity
+            android:name=".NewsActivityMain"
+            android:exported="false" />
+        <activity
+            android:name=".NewsDetail"
+            android:exported="false" />
+        <activity
             android:name=".ListNews"
             android:exported="false" />
         <!--
