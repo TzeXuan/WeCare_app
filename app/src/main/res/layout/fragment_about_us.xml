@@ -38,16 +38,18 @@
 
         <Button
             android:id="@+id/emailemail"
-            android:layout_marginTop="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/signup_border"
             android:text="email us" />
 
         <Button
             android:id="@+id/termBtn"
-            android:layout_marginTop="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/signup_border"
             android:text="Term Of Use " />
 
         <TextView
