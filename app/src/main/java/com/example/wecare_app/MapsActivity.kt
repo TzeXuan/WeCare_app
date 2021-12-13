@@ -46,8 +46,7 @@ import android.view.*
 import com.example.wecare_app.Constants.DEFAULT_ZOOM
 import java.io.IOException
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.firebase.firestore.DocumentReference
-import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.custom_info_window.*
 
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -82,7 +81,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         val homeLatLng = LatLng(latitude, longitude)
 
-
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(homeLatLng, DEFAULT_ZOOM))
         map.addMarker(MarkerOptions()
             .position(homeLatLng)
@@ -93,6 +91,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         setMapLongClick(map)
 
         setPoiClick(map)
+
+        displayMarker(map)
 
         map.setInfoWindowAdapter(CustomInfoWindowForGoogleMap(this))
 
@@ -115,7 +115,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
      */
 
 
-
 private fun intit(){
 
         binding.mapSearch.setOnEditorActionListener(OnEditorActionListener { editText, actionId, keyEvent ->
@@ -128,7 +127,6 @@ private fun intit(){
                 geoLocate()
 
             }
-
             false
         })
 
@@ -370,8 +368,25 @@ private fun intit(){
         }
     }
 
+    private fun displayMarker(map: GoogleMap){
+        // coordinate in Malaysia
+        val latitude = 5.40974
+        val longitude = 100.32812
+
+        val testingLatLong = LatLng(latitude, longitude)
+
+        val snippet = String.format(
+            Locale.getDefault(), "Lat: %1$.5f, Long: %2$.5f ZEKI", testingLatLong.latitude, testingLatLong.longitude
+        )
+
+        map.addMarker(MarkerOptions().position(testingLatLong).title(getString(R.string.marked_location))
+            .snippet(snippet).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)))
+
+    }
+
     // Places a marker on the map and displays an info window that contains POI name.
     private fun setPoiClick(map: GoogleMap) {
+        Log.d("TX","TESTING")
         map.setOnPoiClickListener {
             val poiMarker = map.addMarker(MarkerOptions().position(it.latLng).title(it.name))
             poiMarker?.showInfoWindow()
@@ -434,11 +449,7 @@ private fun intit(){
         }
     }
 
-
 }
-
-
-
 
 class CustomInfoWindowForGoogleMap(context: Context) : GoogleMap.InfoWindowAdapter {
 
@@ -447,16 +458,11 @@ class CustomInfoWindowForGoogleMap(context: Context) : GoogleMap.InfoWindowAdapt
 
     private fun rendowWindowText(marker: Marker, view: View){
 
-        val tvTitle = view.findViewById<TextView>(R.id.title)
+        val tvTitle = view.findViewById<TextView>(R.id.title22)
         val tvSnippet = view.findViewById<TextView>(R.id.snippet)
-
-
-        Log.d("TX",marker.title.toString())
-        Log.d("TX",tvTitle.toString())
 
         tvTitle.text = marker.title
         tvSnippet.text = marker.snippet
-
 
     }
 
