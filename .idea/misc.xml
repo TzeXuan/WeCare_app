@@ -15,9 +15,14 @@
         <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/drawable/signup_border.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/drawable/white_border.xml" value="0.23981481481481481" />
         <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/font/molengo.xml" value="0.28020833333333334" />
+        <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/layout/activity_maps.xml" value="0.4" />
-        <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/layout/custom_info_window.xml" value="0.12708333333333333" />
+        <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/layout/custom_info_window.xml" value="0.264" />
         <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/layout/custom_into_window.xml" value="0.14221014492753623" />
+        <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/layout/fragment_event.xml" value="0.25" />
+        <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/layout/fragment_homepage.xml" value="0.25" />
+        <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/layout/fragment_settings.xml" value="0.25" />
         <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/layout/fragment_sign_up_page1.xml" value="0.25" />
         <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/menu/map_options.xml" value="0.25" />
         <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/menu/menu_options.xml" value="0.25" />

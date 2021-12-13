@@ -1,4 +1,4 @@
-package com.example.wecare_app.SignUp
+package com.example.wecare_app
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

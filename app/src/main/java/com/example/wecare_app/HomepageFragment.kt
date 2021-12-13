@@ -20,7 +20,6 @@ class HomepageFragment : Fragment() {
             container, false
         )
 
-
         return binding.root
     }
 

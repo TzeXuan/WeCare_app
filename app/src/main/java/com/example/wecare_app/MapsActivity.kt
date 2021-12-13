@@ -160,8 +160,6 @@ private fun intit(){
             Toast.makeText(this, "Location successful found!", Toast.LENGTH_SHORT).show();
         }
 
-
-
     }
 
     private fun getUserLocation(){ // gets and store user's location

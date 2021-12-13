@@ -15,6 +15,5 @@ class MainActivity: AppCompatActivity() {
 
         val binding =
             DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
-
     }
 }

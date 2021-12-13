@@ -1,6 +1,5 @@
 package com.example.wecare_app
 
-import android.app.Activity
 import android.content.Context
 import android.view.View
 import android.widget.TextView
@@ -8,8 +7,6 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.Marker
 
 import android.view.LayoutInflater
-
-
 
 
 class CustomInfoWindowForGoogleMap(context: Context) : GoogleMap.InfoWindowAdapter {
@@ -24,7 +21,7 @@ class CustomInfoWindowForGoogleMap(context: Context) : GoogleMap.InfoWindowAdapt
 
     private fun rendowWindowText(marker: Marker, view: View?) {
         val title = marker.title
-        val tvTitle = view!!.findViewById<View>(R.id.title) as TextView
+        val tvTitle = view!!.findViewById<View>(R.id.title22) as TextView
         if (title != "") {
             tvTitle.text = title
         }
