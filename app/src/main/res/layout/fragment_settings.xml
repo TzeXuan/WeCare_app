@@ -62,7 +62,7 @@
             app:layout_constraintTop_toBottomOf="@+id/myd" />
 
         <TextView
-            android:id="@+id/out"
+            android:id="@+id/LogIn"
             style="@style/setting_style"
             android:background="@drawable/border"
             android:text="Log In "
