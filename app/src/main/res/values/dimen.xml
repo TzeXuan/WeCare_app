@@ -4,4 +4,5 @@
     <dimen name="signUp_layoutHeight">42dp</dimen>
     <dimen name="custom_marker_image">50dp</dimen>
     <dimen name="custom_marker_padding">2dp</dimen>
+    <dimen name="text_size">24sp</dimen>
 </resources>

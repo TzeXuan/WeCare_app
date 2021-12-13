@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".aboutUs">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#C3C0C0"
+            android:text="@string/name"
+            android:textAlignment="center"
+            android:textSize="@dimen/text_size" />
+
+        <TextView
+            android:id="@+id/paragraph"
+            android:layout_width="match_parent"
+            android:layout_height="115dp"
+            android:fontFamily="casual"
+            android:layout_marginTop="5dp"
+            android:text="@string/paragraph"
+            android:textAlignment="textStart"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/contact"
+            android:textAlignment="center"
+            android:background="#C3C0C0"
+            android:textSize="@dimen/text_size"/>
+
+        <Button
+            android:id="@+id/emailemail"
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="email us" />
+
+        <Button
+            android:id="@+id/termBtn"
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Term Of Use " />
+
+        <TextView
+            android:id="@+id/copy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Copyright 2021 by WECARE TEAM"
+            android:textAlignment="center"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/vvv"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Version 1.0"
+            android:textAlignment="center"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</layout>

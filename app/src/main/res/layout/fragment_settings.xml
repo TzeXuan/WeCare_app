@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".settings">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F4FFFD">
+
+        <TextView
+            android:id="@+id/aboutBtn"
+            style="@style/setting_style"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/border"
+            android:text="About"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/myd"
+            style="@style/setting_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/border"
+            android:padding="10dp"
+            android:text="My Details"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/acc" />
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/setting_style"
+            android:layout_marginTop="16dp"
+            android:text="@string/title"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/acc"
+            style="@style/setting_style"
+            android:layout_marginTop="16dp"
+            android:text="Account"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/aboutBtn" />
+
+        <TextView
+            android:id="@+id/up"
+            style="@style/setting_style"
+            android:background="@drawable/border"
+            android:text="Update Password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/myd" />
+
+        <TextView
+            android:id="@+id/out"
+            style="@style/setting_style"
+            android:background="@drawable/border"
+            android:text="Log Out"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/up" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

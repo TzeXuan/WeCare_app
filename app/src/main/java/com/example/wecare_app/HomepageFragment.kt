@@ -30,7 +30,8 @@ class HomepageFragment : Fragment() {
         }
 
         binding.settingButton.setOnClickListener{
-            // Go to setting page (Weiqing)
+            requireActivity().supportFragmentManager.beginTransaction().replace(R.id.myNavHostFragment, settings())
+                .addToBackStack(null).commit()
         }
 
         binding.FoodAndDrinks.setOnClickListener{

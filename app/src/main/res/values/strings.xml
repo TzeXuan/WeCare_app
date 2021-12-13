@@ -30,4 +30,12 @@
         <item>Yes</item>
         <item>No</item>
     </string-array>
+
+    <!-- Settings Page -->
+    <string name="paragraph">We Care is here to take the chance out of going out. We care will provide you the information and detail that you need to work out if a place is going to be accessible to you.</string>
+    <string name="contact">Contact Us</string>
+    <string name="name">We Care</string>
+    <string name="title">General</string>
+
+
 </resources>
