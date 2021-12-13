@@ -368,23 +368,6 @@ private fun intit(){
         }
     }
 
-/*
-    private fun displayMarker(map: GoogleMap){
-        // coordinate in Malaysia
-        val latitude = 5.40974
-        val longitude = 100.32812
-
-        val testingLatLong = LatLng(latitude, longitude)
-
-        val snippet = String.format(
-            Locale.getDefault(), "Lat: %1$.5f, Long: %2$.5f", testingLatLong.latitude, testingLatLong.longitude
-        )
-
-        map.addMarker(MarkerOptions().position(testingLatLong).title(getString(R.string.marked_location))
-            .snippet(snippet).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)))
-
-    }
-*/
 
     // Places a marker on the map and displays an info window that contains POI name.
     private fun setPoiClick(map: GoogleMap) {
@@ -458,6 +441,7 @@ private fun intit(){
         var locationID : String? = ""
         var place_Name : String? = ""
         var number : String? = ""
+        var location_type : String? = ""
         lateinit var location : GeoPoint
 
         database.collection("establishments")
@@ -471,7 +455,9 @@ private fun intit(){
                         val testingLatLong = LatLng(location.latitude, location.longitude)
 
                         val snippet = String.format(
-                            Locale.getDefault(), "Lat: %1$.5f, Long: %2$.5f", testingLatLong.latitude, testingLatLong.longitude
+                            Locale.getDefault(), "Phone :$number \n" +
+                                    "                   Place Name :$place_Name \n" +
+                                                        "Venue Type :$location_type"
                         )
 
                         map.addMarker(
