@@ -61,8 +61,8 @@ class LogIn : Fragment() {
         var spannableString = SpannableString(binding.forgotYourPassword.text.toString())
         val clickableSpan1: ClickableSpan = object : ClickableSpan() {
             override fun onClick(widget: View) {
-                // navigate to update password
-                Toast.makeText(requireActivity(), "Forgot Your Password?", Toast.LENGTH_SHORT).show()
+                requireActivity().supportFragmentManager.beginTransaction().replace(R.id.myNavHostFragment, updatePassword())
+                    .addToBackStack(null).commit()
             }
         }
         spannableString.setSpan(clickableSpan1, 0,21, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);

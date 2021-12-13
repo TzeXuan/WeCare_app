@@ -1,6 +1,12 @@
 package com.example.wecare_app
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -48,6 +54,17 @@ class SignUpPage3 : Fragment() {
         binding.buttonBackPage3.setOnClickListener{
             requireActivity().supportFragmentManager.popBackStack()
         }
+
+        var spannableString = SpannableString(binding.agreeLicense.text.toString())
+        val clickableSpan1: ClickableSpan = object : ClickableSpan() {
+            override fun onClick(widget: View) {
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.termsofusegenerator.net/live.php?token=56SWDt8rPJZrv6KP8OEfFwDQQsMdw9d3"))
+                startActivity(browserIntent)
+            }
+        }
+        spannableString.setSpan(clickableSpan1, 8,29, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        binding.agreeLicense.setText(spannableString)
+        binding.agreeLicense.movementMethod = LinkMovementMethod.getInstance()
 
         return binding.root
     }
