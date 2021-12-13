@@ -65,7 +65,7 @@
             android:id="@+id/out"
             style="@style/setting_style"
             android:background="@drawable/border"
-            android:text="Log Out"
+            android:text="Log In "
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
