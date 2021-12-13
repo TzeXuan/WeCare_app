@@ -1,14 +1,17 @@
 package com.example.wecare_app
 
 import android.Manifest
+import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
+import android.content.Context
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -39,9 +42,12 @@ import com.google.firebase.firestore.GeoPoint
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView.OnEditorActionListener
 import android.location.Geocoder
+import android.view.*
 import com.example.wecare_app.Constants.DEFAULT_ZOOM
 import java.io.IOException
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -149,9 +155,12 @@ private fun intit(){
             moveCamera(
                 LatLng(address.latitude, address.longitude), DEFAULT_ZOOM,
                 address.getAddressLine(0)
+
             )
             Toast.makeText(this, "Location successful found!", Toast.LENGTH_SHORT).show();
         }
+
+
 
     }
 
@@ -425,5 +434,40 @@ private fun intit(){
         }
     }
 
+
+}
+
+
+
+
+class CustomInfoWindowForGoogleMap(context: Context) : GoogleMap.InfoWindowAdapter {
+
+    var mContext = context
+    var mWindow = (context as Activity).layoutInflater.inflate(R.layout.custom_info_window, null)
+
+    private fun rendowWindowText(marker: Marker, view: View){
+
+        val tvTitle = view.findViewById<TextView>(R.id.title)
+        val tvSnippet = view.findViewById<TextView>(R.id.snippet)
+
+
+        Log.d("TX",marker.title.toString())
+        Log.d("TX",tvTitle.toString())
+
+        tvTitle.text = marker.title
+        tvSnippet.text = marker.snippet
+
+
+    }
+
+    override fun getInfoContents(marker: Marker): View {
+        rendowWindowText(marker, mWindow)
+        return mWindow
+    }
+
+    override fun getInfoWindow(marker: Marker): View? {
+        rendowWindowText(marker, mWindow)
+        return mWindow
+    }
 }
 

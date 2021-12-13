@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+    <fragment
         xmlns:map="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/map"
@@ -24,7 +24,7 @@
         android:layout_marginRight="10dp"
         android:background="@drawable/white_border"
         android:elevation="10dp">
-
+z
         <ImageView
             android:id="@+id/ic_magnify"
             android:layout_width="15dp"
