@@ -16,6 +16,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.wecare_app.databinding.FragmentLogInBinding
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.fragment_settings.*
 
 class LogIn : Fragment() {
 
@@ -69,6 +70,17 @@ class LogIn : Fragment() {
         binding.forgotYourPassword.setText(spannableString)
         binding.forgotYourPassword.movementMethod = LinkMovementMethod.getInstance()
 
+        var spannableString2 = SpannableString(binding.dontAccount.text.toString())
+        val clickableSpan2: ClickableSpan = object : ClickableSpan() {
+            override fun onClick(widget: View) {
+                requireActivity().supportFragmentManager.beginTransaction().replace(R.id.myNavHostFragment, SignUpPage1())
+                    .addToBackStack(null).commit()
+            }
+        }
+        spannableString2.setSpan(clickableSpan2, 20,27, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        binding.dontAccount.setText(spannableString2)
+        binding.dontAccount.movementMethod = LinkMovementMethod.getInstance()
+        
         return binding.root
     }
 
