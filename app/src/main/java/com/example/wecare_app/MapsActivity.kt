@@ -4,6 +4,7 @@ import android.Manifest
 import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
+import android.content.ContentValues
 import android.content.Context
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
@@ -40,12 +41,12 @@ import com.google.android.gms.location.LocationServices.getFusedLocationProvider
 
 import com.google.firebase.firestore.GeoPoint
 import android.view.inputmethod.EditorInfo
-import android.widget.TextView.OnEditorActionListener
 import android.location.Geocoder
 import android.view.*
 import com.example.wecare_app.Constants.DEFAULT_ZOOM
 import java.io.IOException
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.custom_info_window.*
 
 
@@ -72,12 +73,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     }
 
+
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
 
         // coordinate in Malaysia
-        val latitude = 4.1205
-        val longitude = 101.9758
+        val latitude = 5.4154
+        val longitude = 100.3392
 
         val homeLatLng = LatLng(latitude, longitude)
 
@@ -92,8 +94,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         setPoiClick(map)
 
-        displayMarker(map)
-
         map.setInfoWindowAdapter(CustomInfoWindowForGoogleMap(this))
 
         //setMapStyle(map)
@@ -101,6 +101,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         checkMapServices()
         enableMyLocation()
         intit()
+        readDatabaseES()
     }
 
 
@@ -117,7 +118,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
 private fun intit(){
 
-        binding.mapSearch.setOnEditorActionListener(OnEditorActionListener { editText, actionId, keyEvent ->
+        binding.mapSearch.setOnEditorActionListener( { editText, actionId, keyEvent ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH || //ID PRESS SEARCH, ENTER, NEXT LINE OR OTHER WISE
                 actionId == EditorInfo.IME_ACTION_DONE   ||
                 keyEvent.action == KeyEvent.ACTION_DOWN ||
@@ -130,7 +131,7 @@ private fun intit(){
             false
         })
 
-        binding.icGps.setOnClickListener(View.OnClickListener {
+        binding.icGps.setOnClickListener( {
             Log.d(TAG, "onClick: clicked gps icon")
             getUserLocation()
         })
@@ -155,7 +156,7 @@ private fun intit(){
                 address.getAddressLine(0)
 
             )
-            Toast.makeText(this, "Location successful found!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Location successful found!", Toast.LENGTH_SHORT).show()
         }
 
 
@@ -252,8 +253,7 @@ private fun intit(){
         } else if (GoogleApiAvailability.getInstance().isUserResolvableError(available)) {
             //an error occurred but we can resolve it
             Log.d(TAG, "isServicesOK: an error occurred but we can fix it")
-            val dialog: Dialog = GoogleApiAvailability.getInstance()
-                .getErrorDialog(this@MapsActivity, available, ERROR_DIALOG_REQUEST)
+            val dialog: Dialog = GoogleApiAvailability.getInstance().getErrorDialog(this@MapsActivity, available, ERROR_DIALOG_REQUEST)
             dialog.show()
         } else {
             Toast.makeText(this, "You can't make map requests", Toast.LENGTH_SHORT).show()
@@ -368,6 +368,7 @@ private fun intit(){
         }
     }
 
+/*
     private fun displayMarker(map: GoogleMap){
         // coordinate in Malaysia
         val latitude = 5.40974
@@ -376,13 +377,14 @@ private fun intit(){
         val testingLatLong = LatLng(latitude, longitude)
 
         val snippet = String.format(
-            Locale.getDefault(), "Lat: %1$.5f, Long: %2$.5f ZEKI", testingLatLong.latitude, testingLatLong.longitude
+            Locale.getDefault(), "Lat: %1$.5f, Long: %2$.5f", testingLatLong.latitude, testingLatLong.longitude
         )
 
         map.addMarker(MarkerOptions().position(testingLatLong).title(getString(R.string.marked_location))
             .snippet(snippet).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)))
 
     }
+*/
 
     // Places a marker on the map and displays an info window that contains POI name.
     private fun setPoiClick(map: GoogleMap) {
@@ -449,6 +451,53 @@ private fun intit(){
         }
     }
 
+
+
+    fun readDatabaseES() {
+        val database = FirebaseFirestore.getInstance()
+        var locationID : String? = ""
+        var place_Name : String? = ""
+        var number : String? = ""
+        lateinit var location : GeoPoint
+
+        database.collection("establishments")
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    location = document.getGeoPoint("position")!!
+                    place_Name = document.getString("title")
+
+                    fun displayMarker(map: GoogleMap){
+                        val testingLatLong = LatLng(location.latitude, location.longitude)
+
+                        val snippet = String.format(
+                            Locale.getDefault(), "Lat: %1$.5f, Long: %2$.5f", testingLatLong.latitude, testingLatLong.longitude
+                        )
+
+                        map.addMarker(
+                            MarkerOptions().position(testingLatLong).title(place_Name)
+                                .snippet(snippet).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)))
+
+                    }
+                    displayMarker(map)
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d(ContentValues.TAG, "Error getting documents: ", exception)
+            }
+
+        /*establishments.document("FJw4W0yULAEYhlBhtaNO").get()
+           .addOnSuccessListener { document ->
+               locationID = document.getString("location_ID").toString()
+               Log.d("Success", "DocumentSnapshot data: ${document.data}")
+               firestoreCallback.onCallback()
+           }
+           .addOnFailureListener {
+               Log.d("fail", "get failed with ")
+           }*/
+
+    }
+
 }
 
 class CustomInfoWindowForGoogleMap(context: Context) : GoogleMap.InfoWindowAdapter {
@@ -458,8 +507,11 @@ class CustomInfoWindowForGoogleMap(context: Context) : GoogleMap.InfoWindowAdapt
 
     private fun rendowWindowText(marker: Marker, view: View){
 
-        val tvTitle = view.findViewById<TextView>(R.id.title22)
+        val tvTitle = view.findViewById<TextView>(R.id.title_C)
         val tvSnippet = view.findViewById<TextView>(R.id.snippet)
+
+
+
 
         tvTitle.text = marker.title
         tvSnippet.text = marker.snippet
@@ -476,4 +528,13 @@ class CustomInfoWindowForGoogleMap(context: Context) : GoogleMap.InfoWindowAdapt
         return mWindow
     }
 }
+
+
+
+
+
+
+
+
+
 
