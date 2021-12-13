@@ -37,6 +37,11 @@ class settings : Fragment() {
                 .addToBackStack(null).commit()
         }
 
+        binding.LogIn.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction().replace(R.id.myNavHostFragment, logIn())
+                .addToBackStack(null).commit()
+        }
+
         return binding.root
     }
 
