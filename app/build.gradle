@@ -61,10 +61,18 @@ dependencies {
 
     //News Layout
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
-
     implementation 'com.github.florent37:diagonallayout:1.0.7'
     implementation ('com.squareup.picasso:picasso:2.5.2')
     implementation 'de.hdodenhof:circleimageview:2.1.0'
-
     implementation('com.flaviofaria:kenburnsview:1.0.7')
+
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.2.0'
+    implementation 'io.paperdb:paperdb:2.5'
+    implementation 'com.github.d-max:spots-dialog:0.7@aar'
+
+    implementation 'com.github.curioustechizen.android-ago:library:1.3.4'
+
 }

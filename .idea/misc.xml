@@ -6,17 +6,30 @@
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/WeCare_app/app/src/main/res/drawable-anydpi/search_icon.xml" value="0.3158974358974359" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/WeCare_app/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3158974358974359" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/WeCare_app/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3158974358974359" />
-        <entry key="..\:/Users/Administrator/AndroidStudioProjects/WeCare_app/app/src/main/res/layout/activity_main.xml" value="0.18070652173913043" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/WeCare_app/app/src/main/res/layout/activity_maps.xml" value="0.22" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/WeCare_app/app/src/main/res/layout/custom_info_window.xml" value="0.1" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/WeCare_app/app/src/main/res/layout/custom_marker_window.xml" value="0.18840579710144928" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/WeCare_app/app/src/main/res/layout/strings.xml" value="0.14817629179331307" />
+        <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/drawable-anydpi/ic_gps.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/drawable-anydpi/search_icon.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/drawable/ic_authorities.xml" value="0.19907407407407407" />
+        <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/drawable/ic_education.xml" value="0.19907407407407407" />
+        <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/drawable/ic_event_note.xml" value="0.19907407407407407" />
         <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/drawable/signup_border.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/drawable/white_border.xml" value="0.23981481481481481" />
         <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/font/molengo.xml" value="0.28020833333333334" />
+        <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/layout/activity_list_news.xml" value="0.25" />
+        <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/layout/activity_maps.xml" value="0.4" />
         <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/layout/custom_info_window.xml" value="0.12708333333333333" />
+        <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/layout/activity_news_detail.xml" value="0.25" />
+        <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/layout/activity_news_main.xml" value="0.25" />
+        <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/layout/custom_info_window.xml" value="0.264" />
         <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/layout/custom_into_window.xml" value="0.14221014492753623" />
+        <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/layout/fragment_event.xml" value="0.25" />
+        <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/layout/fragment_homepage.xml" value="0.25" />
+        <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/layout/fragment_settings.xml" value="0.25" />
         <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/layout/fragment_sign_up_page1.xml" value="0.25" />
         <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/menu/map_options.xml" value="0.25" />
         <entry key="..\:/Users/xuan4/AndroidStudioProjects/WeCare_app/app/src/main/res/menu/menu_options.xml" value="0.25" />

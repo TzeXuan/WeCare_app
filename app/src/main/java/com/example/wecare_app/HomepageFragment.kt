@@ -43,6 +43,11 @@ class HomepageFragment : Fragment() {
             startActivity(intent)
         }
 
+        binding.NewsButton.setOnClickListener {
+            val intent = Intent(requireContext(), NewsActivityMain::class.java)
+            startActivity(intent)
+        }
+
         return binding.root
     }
 
