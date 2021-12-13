@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.drawerlayout.widget.DrawerLayout
-        android:id="@+id/drawerLayout"
+
+    <fragment
+        android:id="@+id/container_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_navigation_view"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/navigation" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/teal_700"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        app:labelVisibilityMode="selected"
+        app:menu="@menu/menu" />
 
-            <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/myNavHostFragment"
-                android:name="com.example.wecare_app.HomepageFragment"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#4F009688" />
 
-        </LinearLayout>
-
-    </androidx.drawerlayout.widget.DrawerLayout>
-</layout>
+</RelativeLayout>
