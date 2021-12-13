@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".signUpPage2">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F4FFFD"
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="16dp">
+
+        <TextView
+            android:id="@+id/letUsKnowMoreAboutYou"
+            style="@style/signUp_displayText"
+            android:layout_width="289dp"
+            android:layout_height="87dp"
+            android:layout_marginTop="26dp"
+            android:fontFamily="@font/rosario"
+            android:text="Let us know more about you"
+            android:textSize="35dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/continueFillingTheInfoBelow2"
+            style="@style/signUp_displayText"
+            android:layout_marginTop="4dp"
+            android:text="Continue filling the info below"
+            android:textColor="@color/signUpDescriptionGrey"
+            android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/letUsKnowMoreAboutYou" />
+
+        <TextView
+            android:id="@+id/name_display"
+            style="@style/signUp_displayText"
+            android:layout_marginTop="36dp"
+            android:text="Name"
+            app:layout_constraintBottom_toTopOf="@+id/name"
+            app:layout_constraintStart_toStartOf="@+id/name"
+            app:layout_constraintTop_toBottomOf="@+id/continueFillingTheInfoBelow2"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="@dimen/signUp_layoutWidth"
+            android:layout_height="@dimen/signUp_layoutHeight"
+            android:layout_marginTop="48dp"
+            android:background="@drawable/signup_border"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/continueFillingTheInfoBelow2" />
+
+        <TextView
+            android:id="@+id/phoneNumber_display"
+            style="@style/signUp_displayText"
+            android:layout_marginTop="24dp"
+            android:inputType="phone"
+            android:text="Phone Number"
+            app:layout_constraintStart_toStartOf="@+id/phoneNumber"
+            app:layout_constraintTop_toBottomOf="@+id/name" />
+
+        <EditText
+            android:id="@+id/phoneNumber"
+            android:layout_width="@dimen/signUp_layoutWidth"
+            android:layout_height="@dimen/signUp_layoutHeight"
+            android:background="@drawable/signup_border"
+            android:inputType="phone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phoneNumber_display" />
+
+        <TextView
+            android:id="@+id/gender_display"
+            style="@style/signUp_displayText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Gender"
+            app:layout_constraintStart_toStartOf="@+id/gender"
+            app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
+
+        <Spinner
+            android:id="@+id/gender"
+            android:layout_width="@dimen/signUp_layoutWidth"
+            android:layout_height="@dimen/signUp_layoutHeight"
+            android:background="@drawable/signup_spinner"
+            android:spinnerMode="dropdown"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gender_display" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/button_nextPage2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="44dp"
+            android:layout_marginBottom="48dp"
+            android:background="#15A483"
+            android:clickable="true"
+            android:src="@drawable/ic_signup_nextarrow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/button_backPage2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:layout_marginBottom="48dp"
+            android:clickable="true"
+            android:src="@drawable/ic_signup_backarrow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
