@@ -25,7 +25,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <ImageButton
-            android:id="@+id/btn"
+            android:id="@+id/FoodAndDrinks"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_centerInParent="true"
@@ -34,7 +34,7 @@
             android:layout_marginEnd="25dp"
             android:background="@drawable/roundbtn"
             android:src="@drawable/ic_food"
-            app:layout_constraintEnd_toStartOf="@+id/btn2"
+            app:layout_constraintEnd_toStartOf="@+id/Shopping"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/searchView"
             tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
@@ -46,12 +46,12 @@
             android:text="Food &amp; Drinks"
             android:textSize="14dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            app:layout_constraintEnd_toEndOf="@+id/btn"
-            app:layout_constraintStart_toStartOf="@+id/btn"
-            app:layout_constraintTop_toBottomOf="@+id/btn" />
+            app:layout_constraintEnd_toEndOf="@+id/FoodAndDrinks"
+            app:layout_constraintStart_toStartOf="@+id/FoodAndDrinks"
+            app:layout_constraintTop_toBottomOf="@+id/FoodAndDrinks" />
 
         <ImageButton
-            android:id="@+id/btn2"
+            android:id="@+id/Shopping"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_centerInParent="true"
@@ -59,8 +59,8 @@
             android:layout_marginEnd="25dp"
             android:background="@drawable/roundbtn"
             android:src="@drawable/ic_shopping"
-            app:layout_constraintEnd_toStartOf="@+id/btn3"
-            app:layout_constraintStart_toEndOf="@+id/btn"
+            app:layout_constraintEnd_toStartOf="@+id/Transport"
+            app:layout_constraintStart_toEndOf="@+id/FoodAndDrinks"
             app:layout_constraintTop_toBottomOf="@+id/searchView"
             tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
@@ -71,12 +71,12 @@
             android:text="Shopping"
             android:textSize="14dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            app:layout_constraintEnd_toEndOf="@+id/btn2"
-            app:layout_constraintStart_toStartOf="@+id/btn2"
-            app:layout_constraintTop_toBottomOf="@+id/btn2" />
+            app:layout_constraintEnd_toEndOf="@+id/Shopping"
+            app:layout_constraintStart_toStartOf="@+id/Shopping"
+            app:layout_constraintTop_toBottomOf="@+id/Shopping" />
 
         <ImageButton
-            android:id="@+id/btn3"
+            android:id="@+id/Transport"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_centerInParent="true"
@@ -84,8 +84,8 @@
             android:layout_marginEnd="25dp"
             android:background="@drawable/roundbtn"
             android:src="@drawable/ic_transport"
-            app:layout_constraintEnd_toStartOf="@+id/btn4"
-            app:layout_constraintStart_toEndOf="@+id/btn2"
+            app:layout_constraintEnd_toStartOf="@+id/Education"
+            app:layout_constraintStart_toEndOf="@+id/Shopping"
             app:layout_constraintTop_toBottomOf="@+id/searchView"
             tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
@@ -96,12 +96,12 @@
             android:text="Transport"
             android:textSize="14dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            app:layout_constraintEnd_toEndOf="@+id/btn3"
-            app:layout_constraintStart_toStartOf="@+id/btn3"
-            app:layout_constraintTop_toBottomOf="@+id/btn3" />
+            app:layout_constraintEnd_toEndOf="@+id/Transport"
+            app:layout_constraintStart_toStartOf="@+id/Transport"
+            app:layout_constraintTop_toBottomOf="@+id/Transport" />
 
         <ImageButton
-            android:id="@+id/btn4"
+            android:id="@+id/Education"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_centerInParent="true"
@@ -110,7 +110,7 @@
             android:background="@drawable/roundbtn"
             android:src="@drawable/ic_education"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/btn3"
+            app:layout_constraintStart_toEndOf="@+id/Transport"
             app:layout_constraintTop_toBottomOf="@+id/searchView"
             tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
@@ -121,12 +121,12 @@
             android:text="Education"
             android:textSize="14dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            app:layout_constraintEnd_toEndOf="@+id/btn4"
-            app:layout_constraintStart_toStartOf="@+id/btn4"
-            app:layout_constraintTop_toBottomOf="@+id/btn4" />
+            app:layout_constraintEnd_toEndOf="@+id/Education"
+            app:layout_constraintStart_toStartOf="@+id/Education"
+            app:layout_constraintTop_toBottomOf="@+id/Education" />
 
         <ImageButton
-            android:id="@+id/btn5"
+            android:id="@+id/Health"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_centerInParent="true"
@@ -134,9 +134,9 @@
             android:layout_marginEnd="25dp"
             android:background="@drawable/roundbtn"
             android:src="@drawable/ic_health"
-            app:layout_constraintEnd_toStartOf="@+id/btn6"
+            app:layout_constraintEnd_toStartOf="@+id/Hotels"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/btn"
+            app:layout_constraintStart_toStartOf="@+id/FoodAndDrinks"
             app:layout_constraintTop_toBottomOf="@+id/textView"
             tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
@@ -148,20 +148,20 @@
             android:text="Health"
             android:textSize="14dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            app:layout_constraintEnd_toEndOf="@+id/btn5"
-            app:layout_constraintStart_toStartOf="@+id/btn5"
-            app:layout_constraintTop_toBottomOf="@+id/btn5" />
+            app:layout_constraintEnd_toEndOf="@+id/Health"
+            app:layout_constraintStart_toStartOf="@+id/Health"
+            app:layout_constraintTop_toBottomOf="@+id/Health" />
 
         <ImageButton
-            android:id="@+id/btn6"
+            android:id="@+id/Hotels"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_centerInParent="true"
             android:layout_marginTop="36dp"
             android:background="@drawable/roundbtn"
             android:src="@drawable/ic_hotel"
-            app:layout_constraintEnd_toEndOf="@+id/btn2"
-            app:layout_constraintStart_toStartOf="@+id/btn2"
+            app:layout_constraintEnd_toEndOf="@+id/Shopping"
+            app:layout_constraintStart_toStartOf="@+id/Shopping"
             app:layout_constraintTop_toBottomOf="@+id/textView2"
             tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
@@ -173,20 +173,20 @@
             android:text="Hotels"
             android:textSize="14dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            app:layout_constraintEnd_toEndOf="@+id/btn6"
-            app:layout_constraintStart_toStartOf="@+id/btn6"
-            app:layout_constraintTop_toBottomOf="@+id/btn6" />
+            app:layout_constraintEnd_toEndOf="@+id/Hotels"
+            app:layout_constraintStart_toStartOf="@+id/Hotels"
+            app:layout_constraintTop_toBottomOf="@+id/Hotels" />
 
         <ImageButton
-            android:id="@+id/btn7"
+            android:id="@+id/Finance"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_centerInParent="true"
             android:layout_marginTop="35dp"
             android:background="@drawable/roundbtn"
             android:src="@drawable/ic_finance"
-            app:layout_constraintEnd_toEndOf="@+id/btn3"
-            app:layout_constraintStart_toStartOf="@+id/btn3"
+            app:layout_constraintEnd_toEndOf="@+id/Transport"
+            app:layout_constraintStart_toStartOf="@+id/Transport"
             app:layout_constraintTop_toBottomOf="@+id/textView3"
             tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
@@ -198,20 +198,20 @@
             android:text="Finance"
             android:textSize="14dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            app:layout_constraintEnd_toEndOf="@+id/btn7"
-            app:layout_constraintStart_toStartOf="@+id/btn7"
-            app:layout_constraintTop_toBottomOf="@+id/btn7" />
+            app:layout_constraintEnd_toEndOf="@+id/Finance"
+            app:layout_constraintStart_toStartOf="@+id/Finance"
+            app:layout_constraintTop_toBottomOf="@+id/Finance" />
 
         <ImageButton
-            android:id="@+id/btn8"
+            android:id="@+id/Authorties"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_centerInParent="true"
             android:layout_marginTop="35dp"
             android:background="@drawable/roundbtn"
             android:src="@drawable/ic_authorities"
-            app:layout_constraintEnd_toEndOf="@+id/btn4"
-            app:layout_constraintStart_toStartOf="@+id/btn4"
+            app:layout_constraintEnd_toEndOf="@+id/Education"
+            app:layout_constraintStart_toStartOf="@+id/Education"
             app:layout_constraintTop_toBottomOf="@+id/textView4"
             tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
@@ -223,9 +223,9 @@
             android:text="Authorities"
             android:textSize="14dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            app:layout_constraintEnd_toEndOf="@+id/btn8"
-            app:layout_constraintStart_toStartOf="@+id/btn8"
-            app:layout_constraintTop_toBottomOf="@+id/btn8" />
+            app:layout_constraintEnd_toEndOf="@+id/Authorties"
+            app:layout_constraintStart_toStartOf="@+id/Authorties"
+            app:layout_constraintTop_toBottomOf="@+id/Authorties" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -238,22 +238,40 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_navigation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:background="?android:attr/windowBackground"
-            app:itemBackground="@color/teal_700"
-            app:itemIconTint="#fff"
-            app:itemTextColor="#fff"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/nav_menu">
 
-        </com.google.android.material.bottomnavigation.BottomNavigationView>
+        <Button
+            android:id="@+id/NewsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginBottom="48dp"
+            android:text="News"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/homeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="31dp"
+            android:layout_marginBottom="48dp"
+            android:text="Home"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/settingButton"
+            app:layout_constraintHorizontal_bias="0.68"
+            app:layout_constraintStart_toEndOf="@+id/NewsButton"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <Button
+            android:id="@+id/settingButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="48dp"
+            android:text="Settings"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

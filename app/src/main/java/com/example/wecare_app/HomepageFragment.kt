@@ -1,5 +1,6 @@
 package com.example.wecare_app
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +20,28 @@ class HomepageFragment : Fragment() {
             R.layout.fragment_homepage,
             container, false
         )
+
+        binding.NewsButton.setOnClickListener {
+            // Go to news page (TzeXuan)
+        }
+
+        binding.homeButton.setOnClickListener {
+            // Home Page
+        }
+
+        binding.settingButton.setOnClickListener{
+            // Go to setting page (Weiqing)
+        }
+
+        binding.FoodAndDrinks.setOnClickListener{
+            val intent = Intent(requireContext(), MapsActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.Shopping.setOnClickListener{
+            val intent = Intent(requireContext(), MapsActivity::class.java)
+            startActivity(intent)
+        }
 
         return binding.root
     }

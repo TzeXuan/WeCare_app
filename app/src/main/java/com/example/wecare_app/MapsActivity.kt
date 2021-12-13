@@ -1,17 +1,14 @@
 package com.example.wecare_app
 
 import android.Manifest
-import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
-import android.content.Context
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -22,13 +19,9 @@ import com.example.wecare_app.databinding.ActivityMapsBinding
 import com.google.android.gms.maps.model.*
 import java.util.*
 import android.content.Intent
-
 import android.widget.Toast
-
 import com.google.android.gms.common.GoogleApiAvailability
-
 import com.google.android.gms.common.ConnectionResult
-
 import android.location.LocationManager
 
 import android.content.DialogInterface
