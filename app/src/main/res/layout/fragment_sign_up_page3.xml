@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".SignUpPage3">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F4FFFD"
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="16dp">
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/signUp_displayText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:text="One Last Thing..."
+            android:textSize="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.54"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/continueFillingTheInfoBelow3"
+            style="@style/signUp_displayText"
+            android:layout_marginTop="4dp"
+            android:text="Continue filling the info below"
+            android:textColor="@color/signUpDescriptionGrey"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/caregiver_display"
+            style="@style/signUp_displayText"
+            android:layout_marginTop="44dp"
+            android:layout_marginBottom="5dp"
+            android:text="Are you the caregiver?"
+            app:layout_constraintBottom_toTopOf="@+id/caregiver"
+            app:layout_constraintStart_toStartOf="@+id/caregiver"
+            app:layout_constraintTop_toBottomOf="@+id/continueFillingTheInfoBelow3"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <Spinner
+            android:id="@+id/caregiver"
+            android:layout_width="@dimen/signUp_layoutWidth"
+            android:layout_height="@dimen/signUp_layoutHeight"
+            android:layout_marginTop="96dp"
+            android:background="@drawable/signup_spinner"
+            android:spinnerMode="dropdown"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/continueFillingTheInfoBelow3" />
+
+        <CheckBox
+            android:id="@+id/agreeLicense"
+            style="@style/signUp_displayText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I agree License and Agreement"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/caregiver"
+            app:layout_constraintTop_toBottomOf="@+id/caregiver"
+            app:layout_constraintVertical_bias="0.024" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/done_page3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="44dp"
+            android:layout_marginBottom="48dp"
+            android:backgroundTint="#15A483"
+            android:clickable="true"
+            android:src="@drawable/ic_signup_done"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/button_backPage3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:layout_marginBottom="48dp"
+            android:clickable="true"
+            android:src="@drawable/ic_signup_backarrow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

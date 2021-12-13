@@ -38,8 +38,14 @@ class settings : Fragment() {
         }
 
         binding.LogIn.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction().replace(R.id.myNavHostFragment, logIn())
+            requireActivity().supportFragmentManager.beginTransaction().replace(R.id.myNavHostFragment, LogIn())
                 .addToBackStack(null).commit()
+        }
+
+        binding.Signup.setOnClickListener{
+            requireActivity().supportFragmentManager.beginTransaction().replace(R.id.myNavHostFragment, SignUpPage1())
+                .addToBackStack(null).commit()
+
         }
 
         return binding.root

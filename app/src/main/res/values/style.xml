@@ -6,4 +6,13 @@
         <item name="android:textSize">18dp</item>
         <item name="android:padding">10dp</item>
     </style>
+
+    <style name="signUp_displayText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/molengo</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
 </resources>
