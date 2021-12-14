@@ -61,7 +61,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private var mLocationPermissionGranted = false
     private var mFusedLocationClient: FusedLocationProviderClient? = null
 
-    private lateinit var restaurant : String
+    private lateinit var categoryType : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,7 +69,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        restaurant = intent.getStringExtra("category").toString()
+        categoryType = intent.getStringExtra("category").toString()
 
         //Log.d("TzeXuan",intent.getStringExtra("restaurant").toString())
 
