@@ -40,17 +40,20 @@ class SignUpPage1 : Fragment() {
             var password: String = binding.password.text.toString()
             var confirmPassword: String = binding.confirmPassword.text.toString()
 
-            // save the value into the sharedViewModel
-            sharedViewModel.saveEmail(binding.email.text.toString())
-            if (password == confirmPassword) {
-                sharedViewModel.savePassword(password)
-                sharedViewModel.saveConfirmPassword(confirmPassword)
+            if (password.isNotEmpty() && confirmPassword.isNotEmpty() && binding.email.text.isNotEmpty()) {
+                if (password == confirmPassword) {
+                    sharedViewModel.savePassword(password)
+                    sharedViewModel.saveConfirmPassword(confirmPassword)
+                    sharedViewModel.saveEmail(binding.email.text.toString())
 
-                requireActivity().supportFragmentManager.beginTransaction().replace(R.id.myNavHostFragment, SignUpPage2())
-                    .addToBackStack(null).commit()
-            }
-            else{
-                Toast.makeText(activity, "Password not same", Toast.LENGTH_LONG).show()
+                    requireActivity().supportFragmentManager.beginTransaction()
+                        .replace(R.id.myNavHostFragment, SignUpPage2())
+                        .addToBackStack(null).commit()
+                } else {
+                    Toast.makeText(activity, "Password not same", Toast.LENGTH_LONG).show()
+                }
+            } else {
+                Toast.makeText(activity, "Please fill out all the fields", Toast.LENGTH_LONG).show()
             }
         }
         return binding.root

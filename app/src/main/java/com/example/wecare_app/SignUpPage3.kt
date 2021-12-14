@@ -46,7 +46,6 @@ class SignUpPage3 : Fragment() {
 
         binding.donePage3.setOnClickListener{
             savaToDatabase()
-
             requireActivity().supportFragmentManager.beginTransaction().replace(R.id.myNavHostFragment, LogIn())
                 .addToBackStack(null).commit()
         }

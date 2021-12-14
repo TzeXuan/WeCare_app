@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import com.example.wecare_app.databinding.FragmentSignUpPage2Binding
@@ -47,13 +48,17 @@ class SignUpPage2 : Fragment() {
             var name: String = binding.name.text.toString()
             var phoneNumber : String = binding.phoneNumber.text.toString()
 
-            sharedViewModel.saveName(name)
-            sharedViewModel.savePhoneNumber(phoneNumber)
-            sharedViewModel.saveGender(genderSpinner.selectedItem.toString())
+            if (name.isNotEmpty() && phoneNumber.isNotEmpty()) {
+                sharedViewModel.saveName(name)
+                sharedViewModel.savePhoneNumber(phoneNumber)
+                sharedViewModel.saveGender(genderSpinner.selectedItem.toString())
 
-            requireActivity().supportFragmentManager.beginTransaction().replace(R.id.myNavHostFragment, SignUpPage3())
-                .addToBackStack(null).commit()
-
+                requireActivity().supportFragmentManager.beginTransaction().replace(R.id.myNavHostFragment, SignUpPage3())
+                    .addToBackStack(null).commit()
+            }
+            else {
+                Toast.makeText(activity, "Please fill out all the fields", Toast.LENGTH_LONG).show()
+            }
         }
 
         binding.buttonBackPage2.setOnClickListener{

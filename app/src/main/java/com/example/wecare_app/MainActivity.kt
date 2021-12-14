@@ -1,6 +1,12 @@
 package com.example.wecare_app
 
+import android.content.Context
+import android.graphics.Rect
 import android.os.Bundle
+import android.view.MotionEvent
+import android.view.View
+import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
@@ -15,32 +21,29 @@ class MainActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-       //  val loginn = LogIn()
-         //supportFragmentManager.beginTransaction().replace(R.id.fragment_container,loginn).commit() //1
+    }
 
-
-   /* private lateinit var drawerLayout: DrawerLayout
-
-    override fun onCreate(saveInstanceState: Bundle?) {
-        super.onCreate(saveInstanceState)
-
-        val binding =
-            DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)*/
+    override fun dispatchTouchEvent(event: MotionEvent): Boolean {
+        if (event.action == MotionEvent.ACTION_DOWN) {
+            val v: View? = currentFocus
+            if (v is EditText) {
+                val outRect = Rect()
+                v.getGlobalVisibleRect(outRect)
+                if (!outRect.contains(event.rawX.toInt(), event.rawY.toInt())) {
+                    v.clearFocus()
+                    val imm: InputMethodManager =
+                        getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0)
+                }
+            }
+        }
+        return super.dispatchTouchEvent(event)
     }
 
     fun setActionBarTitle(title: String?) {
         supportActionBar!!.title = title
     }
 
-    /*override fun passDataCom(editText: TextInputEditText:String)
-    val bundle = Bundle()
-    bundle.putString("message",editTextInput)
 
-    val transaction = this.supportFragmentManager.beginTransaction()
-    val reset= updatePassword()
-    reset.arguements = bundle
-
-    transaction.replace(R.id.fragment_container,reset)
-    transaction.commit()*/
 }
 
