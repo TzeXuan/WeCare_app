@@ -26,7 +26,8 @@ class HomepageFragment : Fragment() {
         )
 
         binding.NewsButton.setOnClickListener {
-            // Go to news page (TzeXuan)
+            val intent = Intent(requireContext(), NewsActivityMain::class.java)
+            startActivity(intent)
         }
 
         binding.homeButton.setOnClickListener {
@@ -92,12 +93,6 @@ class HomepageFragment : Fragment() {
             val intent = Intent(requireContext(), MapsActivity::class.java).apply {
                 putExtra("category", "authorities")
             }
-            startActivity(intent)
-        }
-
-
-        binding.NewsButton.setOnClickListener {
-            val intent = Intent(requireContext(), NewsActivityMain::class.java)
             startActivity(intent)
         }
 
