@@ -73,8 +73,8 @@ class myDetail : Fragment() {
             .document(binding.phoneD.text.toString())
             .update("name",binding.namebtn.text.toString(),"email",binding.emailbtn.text.toString())
 
-            .addOnSuccessListener { Log.d("qq", "DocumentSnapshot successfully updated!") }
-            .addOnFailureListener { e -> Log.w("ww", "Error updating document", e) }
+            .addOnSuccessListener { Log.d("qq", "Successfully !") }
+            .addOnFailureListener { e -> Log.w("ww", "Failed !") }
     }
 
     override fun onResume() {

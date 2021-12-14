@@ -111,8 +111,8 @@ class updatePassword : Fragment() {
             .document(binding.phoneR.text.toString())
             .update("password",binding.confirmpass.text.toString())
 
-            .addOnSuccessListener { Log.d("qq", "DocumentSnapshot successfully updated!") }
-            .addOnFailureListener { e -> Log.w("ww", "Error updating document", e) }
+            .addOnSuccessListener { Log.d("qq", "successfully updated!") }
+            .addOnFailureListener { e -> Log.w("ww", "Error ! Failed to reset password !") }
     }
 
     override fun onResume() {
