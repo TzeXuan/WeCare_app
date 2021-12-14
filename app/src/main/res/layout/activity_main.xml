@@ -16,7 +16,7 @@
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/myNavHostFragment"
-                android:name="com.example.wecare_app.HomepageFragment"
+                android:name="com.example.wecare_app.LogIn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:defaultNavHost="true" />

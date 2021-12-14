@@ -62,5 +62,12 @@ class SignUpPage2 : Fragment() {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        // Set title bar
+        (activity as MainActivity).setActionBarTitle("Sign Up")
+    }
+
 
 }

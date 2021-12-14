@@ -1,9 +1,6 @@
 package com.example.wecare_app
 
 import android.os.Bundle
-import android.os.Parcelable
-import android.telecom.Call
-import android.telecom.Call.Details
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.method.HideReturnsTransformationMethod
@@ -19,9 +16,6 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.wecare_app.databinding.FragmentLogInBinding
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.parcel.Parcelize
-import kotlinx.android.synthetic.main.fragment_log_in.*
-import kotlinx.android.synthetic.main.fragment_settings.*
 
 class LogIn : Fragment() {
 
@@ -29,8 +23,9 @@ class LogIn : Fragment() {
 
     val database = FirebaseFirestore.getInstance()
 
-    var value: String? = ""
-    var password2 : String? = ""
+    var userInputPassword: String? = ""
+    var passwordDB : String? = ""
+    var phoneNumberCheck : String? = ""
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -41,20 +36,25 @@ class LogIn : Fragment() {
         )
 
         binding.loginButton.setOnClickListener {
-            password2 = binding.passwordLogin.text.toString()
+            phoneNumberCheck = binding.loginPhoneNumber.text.toString()
+            passwordDB = binding.passwordLogin.text.toString()
+
+/*            while(phoneNumberCheck.isNullOrEmpty() && passwordDB.isNullOrEmpty()) {
+                Toast.makeText(requireActivity(), "Please enter your phone number and password", Toast.LENGTH_LONG).show()
+            }*/
 
             readDatabase(object : FirestoreCallback {
                 override fun onCallback() {
-                    if(value == password2){
-                        Toast.makeText(activity, "Login Successfully", Toast.LENGTH_LONG).show()
+                    if(userInputPassword == passwordDB){
+                        // navigation
+                        Toast.makeText(requireActivity(), "Login Successfully", Toast.LENGTH_LONG).show()
                     }
                     else{
-                        Toast.makeText(activity, "Please create an account ! ", Toast.LENGTH_LONG).show()
+                        Toast.makeText(requireActivity(), "User does not exist ", Toast.LENGTH_LONG).show()
                     }
                 }
             })
         }
-
 
 
         binding.showPassword.setOnClickListener{
@@ -88,11 +88,14 @@ class LogIn : Fragment() {
         spannableString2.setSpan(clickableSpan2, 20,27, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         binding.dontAccount.setText(spannableString2)
         binding.dontAccount.movementMethod = LinkMovementMethod.getInstance()
-        
+
+        binding.skip.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction().replace(R.id.myNavHostFragment,HomepageFragment())
+                .addToBackStack(null).commit()
+        }
+
         return binding.root
     }
-
-
 
     private interface FirestoreCallback {
         fun onCallback()
@@ -104,7 +107,7 @@ class LogIn : Fragment() {
 
         userRegisterRef.document(testing).get()
             .addOnSuccessListener { document ->
-                value = document.getString("password").toString()
+                userInputPassword = document.getString("password").toString()
                 Log.d("TzeXuan", "DocumentSnapshot data: ${document.data}")
                 firestoreCallback.onCallback()
             }
@@ -112,6 +115,13 @@ class LogIn : Fragment() {
                 Log.d("TzeXuan", "get failed with ")
             }
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        // Set title bar
+        (activity as MainActivity).setActionBarTitle("Login")
     }
 
 }

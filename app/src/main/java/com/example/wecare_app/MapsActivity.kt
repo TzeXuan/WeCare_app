@@ -71,8 +71,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mapFragment.getMapAsync(this)
         mFusedLocationClient = getFusedLocationProviderClient(this)
 
-        val message = intent.getStringExtra("restaurant")
-        Log.d("TzeXuan", message.toString())
+        val restaurantText = intent.getStringExtra("restaurant")
+        Log.d("TzeXuan", restaurantText.toString())
 
     }
 
