@@ -39,7 +39,7 @@ class HomepageFragment : Fragment() {
         }
 
         binding.FoodAndDrinks.setOnClickListener{
-            val authorities : String? = ""
+            val authorities : String = ""
             val intent = Intent(requireContext(), MapsActivity::class.java).apply {
                     putExtra("restaurant", authorities)
             }

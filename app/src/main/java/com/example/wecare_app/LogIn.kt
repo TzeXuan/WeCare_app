@@ -48,6 +48,8 @@ class LogIn : Fragment() {
                     if(userInputPassword == passwordDB){
                         // navigation
                         Toast.makeText(requireActivity(), "Login Successfully", Toast.LENGTH_LONG).show()
+                        requireActivity().supportFragmentManager.beginTransaction().replace(R.id.myNavHostFragment, HomepageFragment())
+                            .addToBackStack(null).commit()
                     }
                     else{
                         Toast.makeText(requireActivity(), "User does not exist ", Toast.LENGTH_LONG).show()
@@ -55,7 +57,6 @@ class LogIn : Fragment() {
                 }
             })
         }
-
 
         binding.showPassword.setOnClickListener{
             if(binding.showPassword.text.toString().equals("Show Password")){
