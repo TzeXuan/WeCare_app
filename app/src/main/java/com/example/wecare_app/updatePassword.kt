@@ -1,5 +1,4 @@
 package com.example.wecare_app
-
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -23,9 +22,8 @@ class updatePassword : Fragment() {
     private lateinit var binding: FragmentUpdatePasswordBinding
     val database = FirebaseFirestore.getInstance()
     var value: String? = ""
-    var pass2 : String? = ""
-    var phone2 : String? = ""
-    private val sharedViewModel: SignUpViewModel by activityViewModels()
+    //var pass2 : String? = ""
+    //var phone2 : String? = ""
 
 
     override fun onCreateView(
@@ -40,6 +38,26 @@ class updatePassword : Fragment() {
             container,
             false
         )
+
+        binding.upBtn.setOnClickListener{
+            if (binding.currentpass.text.isNotEmpty() && binding.newpass.text.isNotEmpty() && binding.confirmpass.text.isNotEmpty()){
+                val userRegisterData = hashMapOf<String, String>(
+                "password" to binding.confirmpass.toString()
+                )
+
+                val query = database.collection("userRegisterData")
+                    .whereEqualTo("phone",binding.phoneR.toString())
+                    .get()
+                query.addOnSuccessListener {
+                    for (document in it )
+                    database.collection("userRegisterData"). document(document.id).set(SetOptions.merge())
+                }
+
+            }
+            else{
+                Toast.makeText(activity, "failed!", Toast.LENGTH_LONG).show()
+            }
+        }
 
         /*binding.verify.setOnClickListener{
 
