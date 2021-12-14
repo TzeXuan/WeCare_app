@@ -445,15 +445,15 @@ private fun intit(){
 
     fun readDatabaseES() {
         val database = FirebaseFirestore.getInstance()
-        var locationID : String? = ""
+        var disability_support : String? = ""
         var place_Name : String? = ""
         var number : String? = ""
         var location_type : String? = ""
-        var icon_locate : Int = 123
+        var operating_hours : String? = ""
         val iconGenerator: IconGenerator
-         val markerWidth: Int
-         val markerHeight: Int
-         val imageView: ImageView
+        val markerWidth: Int
+        val markerHeight: Int
+        val imageView: ImageView
 
         lateinit var location : GeoPoint
 
@@ -470,9 +470,10 @@ private fun intit(){
         imageView.setImageResource(R.drawable.food)
         val icon = iconGenerator.makeIcon()
 
+        //val listcol = listOf("restaurant", "shopping", "transport", "hotels","health","finance","education","authorities")
 
-
-        database.collection("restaurant")
+        // database.collection(for (item in listcol))
+        database.collection(categoryType)
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
@@ -480,14 +481,18 @@ private fun intit(){
                     place_Name = document.getString("title")
                     number = document.getString("phone")
                     location_type = document.getString("location_type")
+                    operating_hours = document.getString("operating_hours")
+                    disability_support = document.getString("disability_support")
 
                     fun displayMarker(map: GoogleMap){
                         val testingLatLong = LatLng(location.latitude, location.longitude)
 
                         val snippet = String.format(
                             Locale.getDefault(), "Phone :$number \n" +
-                                    "                   Place Name :$place_Name \n" +
-                                                        "Venue Type :$location_type"
+                                    "Place Name :$place_Name \n" +
+                                    "Venue Type :$location_type \n" +
+                                    "Disability Support :$disability_support \n" +
+                                    "Operating Hour :$operating_hours "
                         )
 
                         map.addMarker(
@@ -502,6 +507,10 @@ private fun intit(){
                 Log.d(ContentValues.TAG, "Error getting documents: ", exception)
             }
 
+    }
+
+}
+
         /*establishments.document("FJw4W0yULAEYhlBhtaNO").get()
            .addOnSuccessListener { document ->
                locationID = document.getString("location_ID").toString()
@@ -512,9 +521,6 @@ private fun intit(){
                Log.d("fail", "get failed with ")
            }*/
 
-    }
-
-}
 
 class CustomInfoWindowForGoogleMap(context: Context) : GoogleMap.InfoWindowAdapter {
 
