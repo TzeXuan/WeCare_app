@@ -477,7 +477,7 @@ private fun intit(){
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
-                    location = document.getGeoPoint("position")!!
+                    location = document.getGeoPoint("location")!!
                     place_Name = document.getString("title")
                     number = document.getString("phone")
                     location_type = document.getString("location_type")
@@ -493,7 +493,7 @@ private fun intit(){
 
                         map.addMarker(
                             MarkerOptions().position(testingLatLong).title(place_Name)
-                                .snippet(snippet).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)))
+                                .snippet(snippet).icon(BitmapDescriptorFactory.fromBitmap(icon)))
 
                     }
                     displayMarker(map)
