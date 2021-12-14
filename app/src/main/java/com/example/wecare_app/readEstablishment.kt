@@ -1,3 +1,4 @@
+/*
 package com.example.wecare_app
 
 import android.content.ContentValues.TAG
@@ -53,7 +54,8 @@ class readEstablishment{
                  Log.d(TAG, "Error getting documents: ", exception)
              }
 
-         /*establishments.document("FJw4W0yULAEYhlBhtaNO").get()
+         */
+/*establishments.document("FJw4W0yULAEYhlBhtaNO").get()
             .addOnSuccessListener { document ->
                 locationID = document.getString("location_ID").toString()
                 Log.d("Success", "DocumentSnapshot data: ${document.data}")
@@ -61,10 +63,12 @@ class readEstablishment{
             }
             .addOnFailureListener {
                 Log.d("fail", "get failed with ")
-            }*/
+            }*//*
+
 
     }
 
 
 
 }
+*/
