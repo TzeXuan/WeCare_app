@@ -41,48 +41,48 @@ class HomepageFragment : Fragment() {
         binding.FoodAndDrinks.setOnClickListener{
             val authorities = "restaurant"
             val intent = Intent(requireContext(), MapsActivity::class.java).apply {
-                    putExtra("restaurant", authorities)
+                    putExtra("category", authorities)
             }
             startActivity(intent)
 
         }
 
         binding.Shopping.setOnClickListener{
-            val shopping = ""
+            val shopping = "shopping"
             val intent = Intent(requireContext(), MapsActivity::class.java).apply {
-                putExtra("shopping", shopping)
+                putExtra("category", shopping)
             }
             startActivity(intent)
         }
 
         binding.Transport.setOnClickListener{
-            val transport : String? = ""
+            val transport = "transport"
             val intent = Intent(requireContext(), MapsActivity::class.java).apply {
-                putExtra("transport", transport)
+                putExtra("category", transport)
             }
             startActivity(intent)
         }
 
         binding.Education.setOnClickListener{
-            val education : String? = ""
+            val education = "education"
             val intent = Intent(requireContext(), MapsActivity::class.java).apply {
-                putExtra("education", education)
+                putExtra("category", education)
             }
             startActivity(intent)
         }
 
         binding.Health.setOnClickListener{
-            val health : String? = ""
+            val health = ""
             val intent = Intent(requireContext(), MapsActivity::class.java).apply {
-                putExtra("health", health)
+                putExtra("category", health)
             }
             startActivity(intent)
         }
 
         binding.Hotels.setOnClickListener{
-            val hotels : String? = ""
+            val hotels : String = ""
             val intent = Intent(requireContext(), MapsActivity::class.java).apply {
-                putExtra("health", hotels)
+                putExtra("category", hotels)
             }
             startActivity(intent)
         }

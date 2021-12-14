@@ -61,13 +61,15 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private var mLocationPermissionGranted = false
     private var mFusedLocationClient: FusedLocationProviderClient? = null
 
+    private lateinit var restaurant : String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val restaurant = intent.getStringExtra("restaurant")
+        restaurant = intent.getStringExtra("category").toString()
 
         //Log.d("TzeXuan",intent.getStringExtra("restaurant").toString())
 
