@@ -29,8 +29,6 @@ import com.google.android.gms.common.ConnectionResult
 import android.location.LocationManager
 
 import android.content.DialogInterface
-import android.graphics.Bitmap
-import android.graphics.Canvas
 import android.location.Address
 import android.provider.Settings
 import android.util.Log
@@ -54,7 +52,6 @@ import com.google.maps.android.ui.IconGenerator
 import kotlinx.android.synthetic.main.custom_info_window.*
 import kotlinx.android.synthetic.main.fragment_homepage.*
 
-
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var map: GoogleMap
@@ -70,17 +67,18 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val restaurant = intent.getStringExtra("restaurant")
+
+        //Log.d("TzeXuan",intent.getStringExtra("restaurant").toString())
+
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
         mFusedLocationClient = getFusedLocationProviderClient(this)
 
-        val restaurantText = intent.getStringExtra("restaurant")
-        Log.d("TzeXuan", restaurantText.toString())
-
     }
-
 
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
