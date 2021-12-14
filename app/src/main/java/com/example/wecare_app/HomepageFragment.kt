@@ -39,53 +39,62 @@ class HomepageFragment : Fragment() {
         }
 
         binding.FoodAndDrinks.setOnClickListener{
-            val authorities = "restaurant"
             val intent = Intent(requireContext(), MapsActivity::class.java).apply {
-                    putExtra("category", authorities)
+                    putExtra("category", "restaurant")
             }
             startActivity(intent)
-
         }
 
         binding.Shopping.setOnClickListener{
-            val shopping = "shopping"
             val intent = Intent(requireContext(), MapsActivity::class.java).apply {
-                putExtra("category", shopping)
+                putExtra("category", "shopping")
             }
             startActivity(intent)
         }
 
         binding.Transport.setOnClickListener{
-            val transport = "transport"
             val intent = Intent(requireContext(), MapsActivity::class.java).apply {
-                putExtra("category", transport)
+                putExtra("category", "transport")
             }
             startActivity(intent)
         }
 
         binding.Education.setOnClickListener{
-            val education = "education"
             val intent = Intent(requireContext(), MapsActivity::class.java).apply {
-                putExtra("category", education)
+                putExtra("category", "education")
             }
             startActivity(intent)
         }
 
         binding.Health.setOnClickListener{
-            val health = ""
+            val health = "health"
             val intent = Intent(requireContext(), MapsActivity::class.java).apply {
-                putExtra("category", health)
+                putExtra("category", "health")
             }
             startActivity(intent)
         }
 
         binding.Hotels.setOnClickListener{
-            val hotels : String = ""
             val intent = Intent(requireContext(), MapsActivity::class.java).apply {
-                putExtra("category", hotels)
+                putExtra("category", "hotels")
             }
             startActivity(intent)
         }
+
+        binding.Finance.setOnClickListener{
+            val intent = Intent(requireContext(), MapsActivity::class.java).apply {
+                putExtra("category", "finance")
+            }
+            startActivity(intent)
+        }
+
+        binding.Authorties.setOnClickListener{
+            val intent = Intent(requireContext(), MapsActivity::class.java).apply {
+                putExtra("category", "authorities")
+            }
+            startActivity(intent)
+        }
+
 
         binding.NewsButton.setOnClickListener {
             val intent = Intent(requireContext(), NewsActivityMain::class.java)

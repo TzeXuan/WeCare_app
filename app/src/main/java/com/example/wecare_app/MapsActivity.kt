@@ -71,8 +71,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         categoryType = intent.getStringExtra("category").toString()
 
-        //Log.d("TzeXuan",intent.getStringExtra("restaurant").toString())
-
+        Log.d("TzeXuan",intent.getStringExtra("category").toString())
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
