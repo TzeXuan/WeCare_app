@@ -7,6 +7,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity: AppCompatActivity() {
 
@@ -14,6 +15,8 @@ class MainActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+       //  val loginn = LogIn()
+         //supportFragmentManager.beginTransaction().replace(R.id.fragment_container,loginn).commit() //1
 
 
    /* private lateinit var drawerLayout: DrawerLayout
@@ -28,5 +31,16 @@ class MainActivity: AppCompatActivity() {
     fun setActionBarTitle(title: String?) {
         supportActionBar!!.title = title
     }
+
+    /*override fun passDataCom(editText: TextInputEditText:String)
+    val bundle = Bundle()
+    bundle.putString("message",editTextInput)
+
+    val transaction = this.supportFragmentManager.beginTransaction()
+    val reset= updatePassword()
+    reset.arguements = bundle
+
+    transaction.replace(R.id.fragment_container,reset)
+    transaction.commit()*/
 }
 

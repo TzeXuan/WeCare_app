@@ -1,6 +1,9 @@
 package com.example.wecare_app
 
 import android.os.Bundle
+import android.os.Parcelable
+import android.telecom.Call
+import android.telecom.Call.Details
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.method.HideReturnsTransformationMethod
@@ -16,11 +19,14 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.wecare_app.databinding.FragmentLogInBinding
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.parcel.Parcelize
+import kotlinx.android.synthetic.main.fragment_log_in.*
 import kotlinx.android.synthetic.main.fragment_settings.*
 
 class LogIn : Fragment() {
 
     private lateinit var binding: FragmentLogInBinding
+
     val database = FirebaseFirestore.getInstance()
 
     var value: String? = ""
@@ -48,6 +54,8 @@ class LogIn : Fragment() {
                 }
             })
         }
+
+
 
         binding.showPassword.setOnClickListener{
             if(binding.showPassword.text.toString().equals("Show Password")){
@@ -83,6 +91,8 @@ class LogIn : Fragment() {
         
         return binding.root
     }
+
+
 
     private interface FirestoreCallback {
         fun onCallback()
