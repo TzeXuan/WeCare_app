@@ -9,7 +9,7 @@ class ClusterMarkers(
     private var position: GeoPoint,//Tile of place
     private var title: String,
     private var snippet: String,//Drawable img
-    var iconPic: Int,//String
+    var iconPic: Int,
     private var establishment: String
 ) : ClusterItem {
 

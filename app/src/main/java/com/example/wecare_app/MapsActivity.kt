@@ -43,11 +43,14 @@ import com.google.firebase.firestore.GeoPoint
 import android.view.inputmethod.EditorInfo
 import android.location.Geocoder
 import android.view.*
+import android.widget.ImageView
 import com.example.wecare_app.Constants.DEFAULT_ZOOM
 import java.io.IOException
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.maps.android.ui.IconGenerator
 import kotlinx.android.synthetic.main.custom_info_window.*
+import kotlinx.android.synthetic.main.fragment_homepage.*
 
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -442,27 +445,49 @@ private fun intit(){
         var place_Name : String? = ""
         var number : String? = ""
         var location_type : String? = ""
+        var icon_locate : Int = 123
+        val iconGenerator: IconGenerator
+         val markerWidth: Int
+         val markerHeight: Int
+         val imageView: ImageView
+
         lateinit var location : GeoPoint
 
-        database.collection("establishments")
+
+        imageView = ImageView(this.applicationContext)
+        iconGenerator = IconGenerator(this.applicationContext)
+        markerWidth = this.resources.getDimension( R.dimen.custom_marker_image).toInt()
+        markerHeight = this.resources.getDimension(R.dimen.custom_marker_image).toInt()
+        imageView.layoutParams = ViewGroup.LayoutParams(markerWidth, markerHeight)
+        val padding = this.resources.getDimension(R.dimen.custom_marker_padding).toInt()
+        imageView.setPadding(padding, padding, padding, padding)
+        iconGenerator.setContentView(imageView)
+        imageView.setImageResource(R.drawable.food)
+        val icon = iconGenerator.makeIcon()
+
+
+
+        database.collection("restaurant")
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
-                    location = document.getGeoPoint("position")!!
+                    location = document.getGeoPoint("location")!!
                     place_Name = document.getString("title")
+                    number = document.getString("phone")
+                    location_type = document.getString("location_type")
 
                     fun displayMarker(map: GoogleMap){
                         val testingLatLong = LatLng(location.latitude, location.longitude)
 
                         val snippet = String.format(
                             Locale.getDefault(), "Phone :$number \n" +
-                                    "                   Place Name :$place_Name \n" +
+                                                        "Place Name :$place_Name \n" +
                                                         "Venue Type :$location_type"
                         )
 
                         map.addMarker(
                             MarkerOptions().position(testingLatLong).title(place_Name)
-                                .snippet(snippet).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)))
+                                .snippet(snippet).icon(BitmapDescriptorFactory.fromBitmap(icon)))
 
                     }
                     displayMarker(map)
