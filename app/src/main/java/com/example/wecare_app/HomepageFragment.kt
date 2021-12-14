@@ -21,15 +21,16 @@ class HomepageFragment : Fragment() {
             container, false
         )
 
-        binding.NewsButton.setOnClickListener {
-            // Go to news page (TzeXuan)
+        binding.News.setOnClickListener {
+            val intent = Intent(requireContext(), NewsActivityMain::class.java)
+            startActivity(intent)
         }
 
-        binding.homeButton.setOnClickListener {
+        binding.Home.setOnClickListener {
             // Home Page
         }
 
-        binding.settingButton.setOnClickListener{
+        binding.Settings.setOnClickListener{
             requireActivity().supportFragmentManager.beginTransaction().replace(R.id.myNavHostFragment, settings())
                 .addToBackStack(null).commit()
         }
@@ -44,10 +45,6 @@ class HomepageFragment : Fragment() {
             startActivity(intent)
         }
 
-        binding.NewsButton.setOnClickListener {
-            val intent = Intent(requireContext(), NewsActivityMain::class.java)
-            startActivity(intent)
-        }
 
         return binding.root
     }

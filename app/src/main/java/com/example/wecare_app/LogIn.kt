@@ -16,6 +16,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.wecare_app.databinding.FragmentLogInBinding
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.fragment_settings.*
 
 class LogIn : Fragment() {
 
@@ -61,14 +62,25 @@ class LogIn : Fragment() {
         var spannableString = SpannableString(binding.forgotYourPassword.text.toString())
         val clickableSpan1: ClickableSpan = object : ClickableSpan() {
             override fun onClick(widget: View) {
-                // navigate to update password
-                Toast.makeText(requireActivity(), "Forgot Your Password?", Toast.LENGTH_SHORT).show()
+                requireActivity().supportFragmentManager.beginTransaction().replace(R.id.myNavHostFragment, updatePassword())
+                    .addToBackStack(null).commit()
             }
         }
         spannableString.setSpan(clickableSpan1, 0,21, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         binding.forgotYourPassword.setText(spannableString)
         binding.forgotYourPassword.movementMethod = LinkMovementMethod.getInstance()
 
+        var spannableString2 = SpannableString(binding.dontAccount.text.toString())
+        val clickableSpan2: ClickableSpan = object : ClickableSpan() {
+            override fun onClick(widget: View) {
+                requireActivity().supportFragmentManager.beginTransaction().replace(R.id.myNavHostFragment, SignUpPage1())
+                    .addToBackStack(null).commit()
+            }
+        }
+        spannableString2.setSpan(clickableSpan2, 20,27, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        binding.dontAccount.setText(spannableString2)
+        binding.dontAccount.movementMethod = LinkMovementMethod.getInstance()
+        
         return binding.root
     }
 
