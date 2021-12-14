@@ -30,8 +30,9 @@ class HomepageFragment : Fragment() {
             startActivity(intent)
         }
 
-        binding.homeButton.setOnClickListener {
-            // Home Page
+        binding.mapsButton.setOnClickListener {
+            val intent = Intent(requireContext(), MapsActivity::class.java)
+            startActivity(intent)
         }
 
         binding.settingButton.setOnClickListener{
