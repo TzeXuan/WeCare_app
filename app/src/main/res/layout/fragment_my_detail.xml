@@ -10,6 +10,21 @@
         android:layout_height="match_parent"
         android:background="#F4FFFD">
 
+        <EditText
+            android:id="@+id/phoneD"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginEnd="44dp"
+            android:layout_marginBottom="38dp"
+            android:background="@drawable/login_border"
+            android:hint="Phone Number"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/namebtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titled" />
 
         <EditText
             android:id="@+id/emailbtn"
@@ -17,13 +32,13 @@
             android:layout_height="0dp"
             android:layout_marginStart="44dp"
             android:layout_marginEnd="44dp"
-            android:layout_marginBottom="39dp"
+            android:layout_marginBottom="64dp"
             android:background="@drawable/login_border"
             android:hint="Email Address"
             android:inputType="textEmailAddress"
             android:textAlignment="center"
             android:textSize="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/genderbtn"
+            app:layout_constraintBottom_toTopOf="@+id/save"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/namebtn" />
@@ -34,7 +49,7 @@
             android:layout_height="0dp"
             android:layout_marginStart="44dp"
             android:layout_marginEnd="44dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="37dp"
             android:background="@drawable/login_border"
             android:hint="Name"
             android:inputType="textPersonName"
@@ -43,48 +58,34 @@
             app:layout_constraintBottom_toTopOf="@+id/emailbtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titled" />
+            app:layout_constraintTop_toBottomOf="@+id/phoneD" />
 
         <Button
             android:id="@+id/save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="179dp"
+            android:layout_marginBottom="245dp"
             android:text="Save Details"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/genderbtn" />
+            app:layout_constraintTop_toBottomOf="@+id/emailbtn" />
 
         <TextView
             android:id="@+id/titled"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
-            android:layout_marginBottom="48dp"
+            android:layout_marginBottom="51dp"
             android:text="My Details"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="35sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/namebtn"
+            app:layout_constraintBottom_toTopOf="@+id/phoneD"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <Spinner
-            android:id="@+id/genderbtn"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="42dp"
-            android:layout_marginEnd="42dp"
-            android:layout_marginBottom="138dp"
-            android:background="@drawable/signup_spinner"
-            android:spinnerMode="dropdown"
-            app:layout_constraintBottom_toTopOf="@+id/save"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/emailbtn" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

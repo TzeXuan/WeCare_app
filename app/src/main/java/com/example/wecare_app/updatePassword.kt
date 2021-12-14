@@ -52,8 +52,10 @@ class updatePassword : Fragment() {
                     for (document in it )
                     database.collection("userRegisterData"). document(document.id).set(SetOptions.merge())
                 }
-
+                Toast.makeText(requireActivity(), "Success!", Toast.LENGTH_LONG).show()
             }
+
+
             else{
                 Toast.makeText(activity, "failed!", Toast.LENGTH_LONG).show()
             }
