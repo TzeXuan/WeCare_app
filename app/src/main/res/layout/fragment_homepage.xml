@@ -90,7 +90,7 @@
             tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
         <TextView
-            android:id="@+id/dontAccount"
+            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Transport"
@@ -187,7 +187,7 @@
             android:src="@drawable/ic_finance"
             app:layout_constraintEnd_toEndOf="@+id/Transport"
             app:layout_constraintStart_toStartOf="@+id/Transport"
-            app:layout_constraintTop_toBottomOf="@+id/dontAccount"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
             tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
         <TextView
@@ -238,57 +238,40 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="414dp"
-            android:layout_height="57dp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:background="@drawable/bottom_bar"
+
+        <Button
+            android:id="@+id/NewsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginBottom="48dp"
+            android:text="News"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageButton
-            android:id="@+id/News"
+        <Button
+            android:id="@+id/homeButton"
             android:layout_width="wrap_content"
-            android:layout_height="51dp"
-            android:layout_marginBottom="4dp"
-            android:background="@color/material_on_surface_stroke"
-            android:src="@drawable/ic_news"
+            android:layout_height="48dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="31dp"
+            android:layout_marginBottom="48dp"
+            android:text="Home"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/Home"
-            app:layout_constraintHorizontal_bias="0.583"
-            app:layout_constraintStart_toStartOf="@+id/imageView2" />
+            app:layout_constraintEnd_toStartOf="@+id/settingButton"
+            app:layout_constraintHorizontal_bias="0.68"
+            app:layout_constraintStart_toEndOf="@+id/NewsButton"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-        <ImageButton
-            android:id="@+id/Home"
-            android:layout_width="52dp"
-            android:layout_height="51dp"
-            android:layout_marginBottom="4dp"
-            android:background="@color/material_on_surface_stroke"
-            android:minWidth="48dp"
-            android:minHeight="48dp"
+        <Button
+            android:id="@+id/settingButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="48dp"
+            android:text="Settings"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.509"
-            app:layout_constraintStart_toStartOf="@+id/imageView2"
-            app:srcCompat="@drawable/ic_home" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
-        <ImageButton
-            android:id="@+id/Settings"
-            android:layout_width="55dp"
-            android:layout_height="50dp"
-            android:background="@color/material_on_surface_stroke"
-            android:minWidth="48dp"
-            android:minHeight="48dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/imageView2"
-            app:layout_constraintHorizontal_bias="0.637"
-            app:layout_constraintStart_toEndOf="@+id/Home"
-            app:layout_constraintTop_toTopOf="@+id/imageView2"
-            app:layout_constraintVertical_bias="0.428"
-            app:srcCompat="@drawable/ic_settings" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
